@@ -1,0 +1,24 @@
+[
+	{
+		"model": "Book",
+		"data": {
+			"name": "Mick Herron Slow Horses",
+			"title": "Slow Horses",
+			"writer": "Slow Horses",
+			"cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+			"price": 1000,
+			"tags":["fiction", "non-fiction", "science", "essay"]
+		}
+	},
+	{
+		"model": "Book",
+		"data": {
+			"name": "The Women: A Novel By Kristin Hannah",
+			"title": "The Women: A Novel",
+			"writer": "Kristin Hannah",
+			"cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+			"price": 1000,
+			"tags":["fiction", "non-fiction", "science", "essay"]
+		}
+	}
+]

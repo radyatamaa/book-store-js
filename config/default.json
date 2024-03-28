@@ -1,0 +1,22 @@
+{
+	"env": "development",
+	"host": "0.0.0.0",
+	"port": 3000,
+	"sequelize": {
+		"database": "simple_book_reader",
+		"username": "postgres",
+		"password": "admin",
+		"host": "localhost",
+		"port": 5432,
+		"dialect": "postgres",
+		"pool": {
+			"max": 5,
+			"min": 0,
+			"idle": 10000
+		},
+		"logging": true,
+		"define": {
+			"freezeTableName": true
+		}
+	}
+}
