@@ -3,7 +3,7 @@
 	"host": "0.0.0.0",
 	"port": 3000,
 	"sequelize": {
-		"database": "simple_book_reader",
+		"database": "book_store",
 		"username": "postgres",
 		"password": "admin",
 		"host": "localhost",

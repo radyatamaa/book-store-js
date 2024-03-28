@@ -1,7 +1,7 @@
 import { DB } from '~/db';
 import { buildBooksRepository, IBooksRepository } from './booksRepository';
 
-describe('data-access:books', () => {
+describe('repositories:books', () => {
 	let db: DB;
 	let BooksRepository: IBooksRepository;
 

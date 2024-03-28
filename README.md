@@ -1,4 +1,4 @@
-# SimpleBookReader
+# Book Store JS
 
 ## About
 
@@ -9,14 +9,14 @@
 - get/post books
 - basic data validation via `@hapi/Joi`
 - sequelize fixtures enabled
-- basic jest test cases for data-access/services
+- basic jest test cases for repositories/services
 - typescript configuration
 
 ## Getting Started
 
-1. Install `Mysql` and start `Mysql.server`.
-2. Create database `simple-book-reader` for development and \
-  `simple-book-reader-test` for test
+1. Install `Postgres` and start `Postgres.server`.
+2. Create database `book_store` for development and \
+  `book_store_test` for test
 3. `npm install`
 4. `npm run dev`
 5. For test, run `npm test`
@@ -27,8 +27,8 @@
   Unlike huge and mighty typical express.js controllers, controllers focus \
   on returning response object for given custom request object(`IHttpRequest`).
 
-- Data-access:
-  Instead of directly using `sequelize` model methods, `data-access` wraps those api thus \
+- Repositories:
+  Instead of directly using `sequelize` model methods, `repositories` wraps those api thus \
   provides proper abstractions over the framework.
 
 - Errors:
@@ -36,11 +36,11 @@
   the other is 4XX error. So for 5XX errors, use native js `Error` and for 4XX errors, use `ClientError`.
 
 - Model-validations:
-  This is the place where the business logic of each entity resides. It validates given data with `Joi` schema.\
+  It validates given data with `Joi` schema.\
   It throws `ClientError` when data is invalid and returns `getter` methods for each field instead of returning data object directly.\
   This makes `service` code more resilient to changes in entities structure.
 
-- Model:
+- Entity:
   Place for `sequelize` model definition however you can use whatever `ORM` or database client you like.
   It should work regardless of your selection of framework/library.
 
@@ -49,7 +49,7 @@
   Thus making our controller simple, dumb and not knowing which routing framework you're using.
 
 - Services:
-  It handles validations via `models-validation` and use `data-access` to interact with database.
+  It handles validations via `models-validation` and use `repositories` to interact with database or business logic.
 
 ## Reference
 

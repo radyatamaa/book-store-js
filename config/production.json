@@ -7,13 +7,14 @@
 		"username": "",
 		"password": "",
 		"host": "",
-		"dialect": "mysql",
+		"port": 5432,
+		"dialect": "postgres",
 		"pool": {
 			"max": 5,
 			"min": 0,
 			"idle": 10000
 		},
-		"logging": false,
+		"logging": true,
 		"define": {
 			"freezeTableName": true
 		}

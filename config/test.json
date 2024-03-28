@@ -3,11 +3,12 @@
 	"host": "0.0.0.0",
 	"port": 3000,
 	"sequelize": {
-		"database": "simple-book-reader-test",
-		"username": "root",
-		"password": "",
+		"database": "book_store_test",
+		"username": "postgres",
+		"password": "admin",
 		"host": "localhost",
-		"dialect": "mysql",
+		"port": 5432,
+		"dialect": "postgres",
 		"pool": {
 			"max": 5,
 			"min": 0,
