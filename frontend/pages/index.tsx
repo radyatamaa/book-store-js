@@ -16,21 +16,21 @@ const Home: React.FC<Props> = ({ books: initialBooks }) => {
   const fetchMoreBooks = async () => {
     setLoading(true);
     try {
-        const res = await axios.get<BookResponse>('http://localhost:3000/v1/books', {
-            params: { page: page + 1, limit: 9 }, // assuming API supports pagination
-        });
-        const newBooks = res.data.data.rows;
-        if (newBooks.length === 0) {
-            setLoading(false); // Stop loading
-            return; // Exit function early
-        }
-        setBooks((prevBooks) => [...prevBooks, ...newBooks]);
-        setPage((prevPage) => prevPage + 1);
+      const res = await axios.get<BookResponse>('http://localhost:3000/v1/books', {
+        params: { page: page + 1, limit: 9 }, // assuming API supports pagination
+      });
+      const newBooks = res.data.data.rows;
+      if (newBooks.length === 0) {
+        setLoading(false); // Stop loading
+        return; // Exit function early
+      }
+      setBooks((prevBooks) => [...prevBooks, ...newBooks]);
+      setPage((prevPage) => prevPage + 1);
     } catch (error) {
-        console.error('Failed to fetch more books:', error);
+      console.error('Failed to fetch more books:', error);
     }
     setLoading(false);
-};
+  };
 
   useEffect(() => {
     const handleScroll = () => {
