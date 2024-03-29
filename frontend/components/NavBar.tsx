@@ -10,7 +10,7 @@ const NavBar: React.FC = () => {
   const { cartItems } = useCart();
   const [showModal, setShowModal] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalMessage, setModalMessage] = useState('');
+  const [modalMessage, setModalMessage] = useState({ message: '', status: '' });
   const router = useRouter();
 
   useEffect(() => {
@@ -22,11 +22,17 @@ const NavBar: React.FC = () => {
     localStorage.removeItem('customerLogin');
     localStorage.removeItem('cartItems');
     setIsLoggedIn(false);
-    setModalMessage('Logout success');
+    setModalMessage({ message: 'Logout success', status: 'success' });
     setModalOpen(true);
-    window.location.href = '/';
+   
   };
 
+  const handleModalClose = () => {
+    setModalOpen(false);
+    if (modalMessage.status === 'success') {
+      window.location.href = '/';
+    }
+  };
   const handleCartClick = () => {
     setShowModal(true);
   };
@@ -101,6 +107,7 @@ const NavBar: React.FC = () => {
           </div>
         </div>
       )}
+      <Modal isOpen={modalOpen} onClose={handleModalClose} message={modalMessage} />
     </nav>
   );
 };
