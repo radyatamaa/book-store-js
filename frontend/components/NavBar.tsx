@@ -4,16 +4,22 @@ import { HomeIcon, ShoppingCartIcon, LoginIcon, StarIcon } from '@heroicons/reac
 
 const NavBar: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [cartCount, setCartCount] = useState(0); // State untuk jumlah item di keranjang
 
   useEffect(() => {
     const customerType = localStorage.getItem('customerType');
     setIsLoggedIn(!!customerType);
+
+    // Mengambil jumlah item di keranjang dari local storage
+    const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    setCartCount(cartItems.length);
   }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('customerType');
+    localStorage.removeItem('cartItems');
     setIsLoggedIn(false);
-    window.location.href = '/'; 
+    window.location.href = '/';
   };
 
   return (
@@ -43,7 +49,7 @@ const NavBar: React.FC = () => {
                 <Link href="/cart" passHref>
                   <div className="flex items-center space-x-2 cursor-pointer">
                     <ShoppingCartIcon className="w-4 h-4" />
-                    <span className="hover:underline">Cart</span>
+                    <span className="hover:underline">Cart {cartCount !== 0 ? `(${cartCount})` : ''}</span>
                   </div>
                 </Link>
               </li>
@@ -53,7 +59,6 @@ const NavBar: React.FC = () => {
                   <span>Logout</span>
                 </button>
               </li>
-
             </>
           ) : (
             <li>
