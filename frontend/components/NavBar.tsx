@@ -37,6 +37,9 @@ const NavBar: React.FC = () => {
     setShowModal(true);
   };
 
+  const calculateTotal = (items) => {
+    return items.reduce((total, item) => total + item.price, 0);
+  };
   return (
     <nav className="bg-gray-800 text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
@@ -90,15 +93,31 @@ const NavBar: React.FC = () => {
           <div className="bg-white p-4 rounded shadow-lg text-gray-800">
             <h2 className="text-xl font-bold mb-4">Your Cart</h2>
             {cartItems.length === 0 ? (
-            <span>No Items ...</span>
-            ) : 
-            cartItems.map((item, index) => (
-              <div key={index} className="flex items-center justify-between border-b border-gray-300 py-2">
-                <span>{item.title}</span>
-                <span>${item.price}</span>
-              </div>
-            ))
-            }
+              <span>No Items ...</span>
+            ) : (
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-gray-300">
+                    <th className="py-2">Item</th>
+                    <th className="py-2">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cartItems.map((item, index) => (
+                    <tr key={index} className="border-b border-gray-300">
+                      <td className="py-2">{item.title}</td>
+                      <td className="py-2">${item.price}</td>
+                    </tr>
+                  ))}
+                </tbody>
+                <tfoot>
+                  <tr className="border-t border-gray-300">
+                    <td className="py-2 font-bold">Total</td>
+                    <td className="py-2 font-bold">${calculateTotal(cartItems)}</td>
+                  </tr>
+                </tfoot>
+              </table>
+            )}
             <div className="mt-4 flex justify-end">
               <button onClick={() => setShowModal(false)} className="text-blue-500 hover:underline">
                 Close
