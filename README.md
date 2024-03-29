@@ -15,11 +15,12 @@
 ## Getting Started
 
 1. Install `Postgres` and start `Postgres.server`.
-2. Create database `book_store` for development and \
+2. Install Node V.14.20.1
+3. Create database `book_store` for development and \
   `book_store_test` for test
-3. `npm install`
-4. `npm run dev`
-5. For test, run `npm test`
+4. `npm install`
+5. `npm run dev`
+6. For test, run `npm test`
 
 ## Folder Structure
 
