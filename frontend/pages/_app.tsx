@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppProps } from 'next/app';
-import { ThemeProvider } from '@/contexts/ThemeContext'; // Adjust the path as needed
+import { ThemeProvider } from '@/contexts/ThemeContext'; // Sesuaikan path jika perlu
 import 'tailwindcss/tailwind.css';
 import '../styles/globals.css';
 

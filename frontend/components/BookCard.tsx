@@ -1,16 +1,26 @@
 import { Book } from '../types/book';
 import React, { useState } from 'react';
+import { useRouter } from 'next/router'; // Import useRouter from Next.js
+
 
 interface Props {
   book: Book;
   onAddToCart: () => void;
 }
-
 const BookCard: React.FC<Props> = ({ book, onAddToCart }) => {
   const [showModal, setShowModal] = useState(false);
+  const router = useRouter(); // Initialize useRouter
 
   const handleClick = () => {
     setShowModal(true);
+  };
+
+  const handleAddToCart = () => {
+    if (!localStorage.getItem('customerType')) {
+      router.push('/login'); // Redirect ke halaman login jika belum login
+      return;
+    }
+    onAddToCart(); // Lakukan logika penambahan item ke keranjang jika sudah login
   };
 
   return (
@@ -47,7 +57,7 @@ const BookCard: React.FC<Props> = ({ book, onAddToCart }) => {
             <p className="font-bold">{book.title}</p>
             <p>{book.description}</p>
             <p className="text-gray-800 font-bold mt-2">${book.price}</p>
-            <button onClick={onAddToCart} className="bg-blue-500 text-white px-4 py-2 mt-4 rounded">
+            <button onClick={handleAddToCart} className="bg-blue-500 text-white px-4 py-2 mt-4 rounded">
               Add to Cart
             </button>
             <button onClick={() => setShowModal(false)} className="bg-gray-300 text-gray-800 px-4 py-2 mt-2 rounded">
