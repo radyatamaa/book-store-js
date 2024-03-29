@@ -36,15 +36,21 @@ export const buildAddOrder = ({
 		const bookAttributes = book.get() as IBookEntityAttributes;
 		const price = (bookAttributes as IBookEntityAttributes).price;
 
-		if ((price * orderData.quantity) > points) {
+		const totalPrice = price * orderData.quantity;
+		if (totalPrice > points) {
 			throw new ClientError('your points are not enough to order', 400);
 		}
-		// throw new ClientError(error.message, 400);
-		return orderRepository.create({
+
+		const createOrder = await orderRepository.create({
 			customerId: orderData.customerId,
 			bookId: orderData.bookId,
 			quantity: orderData.quantity,
 			order_date: orderData.order_date,
 		});
+
+		customerAttributes.points = customerAttributes.points - totalPrice;
+		await customerRepository.update(customerAttributes,orderData.customerId);
+
+		return createOrder
 	};
 };

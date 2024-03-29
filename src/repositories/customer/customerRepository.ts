@@ -6,6 +6,7 @@ export interface ICustomerRepository {
 	findAll: () => Promise<Model<ICustomerEntityAttributes>[]>;
     findById: (id: number) => Promise<Model<ICustomerEntityAttributes> | null>;
 	create: (data: ICustomerEntityAttributes) =>Promise<Model<ICustomerEntityAttributes>>;
+	update: (data: ICustomerEntityAttributes, id: number) => Promise<[number, Model<ICustomerEntityAttributes>[]]>;
 }
 
 export const buildCustomerRepository = ({
@@ -25,9 +26,14 @@ export const buildCustomerRepository = ({
 		return db.create(data);
 	};
 
+	const update = async (data: ICustomerEntityAttributes,id: number) => {
+		return db.update(data,{ where: { id: id } });
+	};
+
 	return {
 		findAll,
         findById,
 		create,
+		update
 	};
 };
