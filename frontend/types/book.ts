@@ -1,4 +1,3 @@
-// types/types.ts
 export interface Book {
     id: number;
     title: string;
@@ -8,3 +7,8 @@ export interface Book {
     tags: string[];
   }
   
+  export interface BookResponse {
+    success:boolean;
+    statusCode:number;
+    data: Book[];
+  }

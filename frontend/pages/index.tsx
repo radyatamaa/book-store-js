@@ -3,7 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import BookCard from '../components/BookCard';
 import NavBar from '../components/NavBar';
-import { Book } from '../types/book';
+import { BookResponse,Book } from '../types/book';
 
 interface Props {
   books: Book[];
@@ -34,7 +34,7 @@ const Home: React.FC<Props> = ({ books }) => {
 };
 
 export async function getStaticProps() {
-  const res = await axios.get<Book[]>('http://localhost:3000/v1/books');
+  const res = await axios.get<BookResponse>('http://localhost:3000/v1/books');
   const books = res.data.data;
 
   return {

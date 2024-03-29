@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getBooks, postBooks } from '../../../src/controllers/books';
+import { getBooks, postBooks,getBook } from '../../../src/controllers/books';
 import { buildExpressCallback } from '../../../src/helpers/express-callback';
 
 const router = Router();
@@ -23,6 +23,34 @@ const router = Router();
  *         description: A list of books.
  */
 router.get('/', buildExpressCallback(getBooks));
+
+/**
+ * @swagger
+ * /v1/books/{id}:
+ *   get:
+ *     summary: Get a book by ID
+ *     description: Retrieve a book by its ID.
+ *     tags: [Books]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID of the book to retrieve
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: A book object
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Book'
+ *       '404':
+ *         description: Book not found
+ */
+router.get('/:id', buildExpressCallback(getBook));
+
+
 
 /**
  * @swagger
