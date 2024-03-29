@@ -4,21 +4,363 @@
 		"data": {
 			"name": "Mick Herron Slow Horses",
 			"title": "Slow Horses",
-			"writer": "Slow Horses",
+			"writer": "Mick Herron",
 			"cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
 			"price": 1000,
 			"tags":["fiction", "non-fiction", "science", "essay"]
 		}
 	},
 	{
-		"model": "Book",
-		"data": {
-			"name": "The Women: A Novel By Kristin Hannah",
-			"title": "The Women: A Novel",
-			"writer": "Kristin Hannah",
-			"cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-			"price": 1000,
-			"tags":["fiction", "non-fiction", "science", "essay"]
-		}
-	}
+        "model": "Book",
+        "data": {
+            "name": "The Catcher in the Rye",
+            "title": "The Catcher in the Rye",
+            "writer": "J.D. Salinger",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 15000,
+            "tags": ["fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "To Kill a Mockingbird",
+            "title": "To Kill a Mockingbird",
+            "writer": "Harper Lee",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 12000,
+            "tags": ["fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "1984",
+            "title": "1984",
+            "writer": "George Orwell",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 11000,
+            "tags": ["fiction", "dystopian", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "Pride and Prejudice",
+            "title": "Pride and Prejudice",
+            "writer": "Jane Austen",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 13000,
+            "tags": ["fiction", "romance", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "The Great Gatsby",
+            "title": "The Great Gatsby",
+            "writer": "F. Scott Fitzgerald",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 14000,
+            "tags": ["fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "Moby Dick",
+            "title": "Moby Dick",
+            "writer": "Herman Melville",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 16000,
+            "tags": ["fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "Jane Eyre",
+            "title": "Jane Eyre",
+            "writer": "Charlotte Bronte",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 12500,
+            "tags": ["fiction", "romance", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "The Adventures of Huckleberry Finn",
+            "title": "The Adventures of Huckleberry Finn",
+            "writer": "Mark Twain",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 11500,
+            "tags": ["fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "The Odyssey",
+            "title": "The Odyssey",
+            "writer": "Homer",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 13500,
+            "tags": ["fiction", "epic", "poetry"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "Wuthering Heights",
+            "title": "Wuthering Heights",
+            "writer": "Emily Bronte",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 14500,
+            "tags": ["fiction", "gothic", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "Frankenstein",
+            "title": "Frankenstein",
+            "writer": "Mary Shelley",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 15500,
+            "tags": ["fiction", "gothic", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "The Picture of Dorian Gray",
+            "title": "The Picture of Dorian Gray",
+            "writer": "Oscar Wilde",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 16500,
+            "tags": ["fiction", "gothic", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "The Time Machine",
+            "title": "The Time Machine",
+            "writer": "H.G. Wells",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 17500,
+            "tags": ["fiction", "science fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "Dracula",
+            "title": "Dracula",
+            "writer": "Bram Stoker",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 18500,
+            "tags": ["fiction", "gothic", "horror", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "Alice's Adventures in Wonderland",
+            "title": "Alice's Adventures in Wonderland",
+            "writer": "Lewis Carroll",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 19500,
+            "tags": ["fiction", "fantasy", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "The Call of the Wild",
+            "title": "The Call of the Wild",
+            "writer": "Jack London",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 20500,
+            "tags": ["fiction", "adventure", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "The War of the Worlds",
+            "title": "The War of the Worlds",
+            "writer": "H.G. Wells",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 21500,
+            "tags": ["fiction", "science fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "Little Women",
+            "title": "Little Women",
+            "writer": "Louisa May Alcott",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 22500,
+            "tags": ["fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "The Count of Monte Cristo",
+            "title": "The Count of Monte Cristo",
+            "writer": "Alexandre Dumas",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 23500,
+            "tags": ["fiction", "adventure", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "The Brothers Karamazov",
+            "title": "The Brothers Karamazov",
+            "writer": "Fyodor Dostoevsky",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 24500,
+            "tags": ["fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "Crime and Punishment",
+            "title": "Crime and Punishment",
+            "writer": "Fyodor Dostoevsky",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 25500,
+            "tags": ["fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "Les Misérables",
+            "title": "Les Misérables",
+            "writer": "Victor Hugo",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 26500,
+            "tags": ["fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "Anna Karenina",
+            "title": "Anna Karenina",
+            "writer": "Leo Tolstoy",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 27500,
+            "tags": ["fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "War and Peace",
+            "title": "War and Peace",
+            "writer": "Leo Tolstoy",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 28500,
+            "tags": ["fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "The Hobbit",
+            "title": "The Hobbit",
+            "writer": "J.R.R. Tolkien",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 29500,
+            "tags": ["fiction", "fantasy", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "The Lord of the Rings",
+            "title": "The Lord of the Rings",
+            "writer": "J.R.R. Tolkien",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 30500,
+            "tags": ["fiction", "fantasy", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "Gulliver's Travels",
+            "title": "Gulliver's Travels",
+            "writer": "Jonathan Swift",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 31500,
+            "tags": ["fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "A Tale of Two Cities",
+            "title": "A Tale of Two Cities",
+            "writer": "Charles Dickens",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 32500,
+            "tags": ["fiction", "novel"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "The Adventures of Sherlock Holmes",
+            "title": "The Adventures of Sherlock Holmes",
+            "writer": "Arthur Conan Doyle",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 33500,
+            "tags": ["fiction", "mystery", "short stories"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "The Complete Works of William Shakespeare",
+            "title": "The Complete Works of William Shakespeare",
+            "writer": "William Shakespeare",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 34500,
+            "tags": ["fiction", "drama", "plays"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "The Divine Comedy",
+            "title": "The Divine Comedy",
+            "writer": "Dante Alighieri",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 35500,
+            "tags": ["fiction", "epic", "poetry"]
+        }
+    },
+    {
+        "model": "Book",
+        "data": {
+            "name": "Don Quixote",
+            "title": "Don Quixote",
+            "writer": "Miguel de Cervantes",
+            "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
+            "price": 36500,
+            "tags": ["fiction", "novel"]
+        }
+    }
+
 ]

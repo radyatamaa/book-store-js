@@ -18,6 +18,19 @@ const router = Router();
  *     summary: Get all books
  *     description: Retrieve a list of all books.
  *     tags: [Books]
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         required: true
+ *         description: page
+ *         schema:
+ *           type: number
+*       - in: query
+ *         name: limit
+ *         required: true
+ *         description: limit
+ *         schema:
+ *           type: number
  *     responses:
  *       '200':
  *         description: A list of books.

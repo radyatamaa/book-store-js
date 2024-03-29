@@ -1,4 +1,4 @@
-export interface Book {
+  export interface Book {
     id: number;
     title: string;
     writer: string;
@@ -10,5 +10,10 @@ export interface Book {
   export interface BookResponse {
     success:boolean;
     statusCode:number;
-    data: Book[];
+    data: BookData;
+  }
+
+  export interface BookData {
+    rows:Book[];
+    count:number;
   }

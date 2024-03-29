@@ -8,7 +8,7 @@ export const buildGetBooks = ({ listBooks }: { listBooks: IListBooks }) => {
 	return async (
 		request: Partial<IHttpRequest>,
 	): Promise<IControllerResponse> => {
-		const books = await listBooks();
+		const books = await listBooks(request.query);
 
 		return {
 			success: true,
