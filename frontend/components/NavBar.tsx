@@ -5,16 +5,12 @@ import { useCart } from '../contexts/CartContext';
 
 const NavBar: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [cartCount, setCartCount] = useState(0); // State untuk jumlah item di keranjang
   const { cartItems } = useCart();
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const customerType = localStorage.getItem('customerType');
     setIsLoggedIn(!!customerType);
-
-    // Mengambil jumlah item di keranjang dari local storage
-    // const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-    // setCartCount(cartItems.length);
   }, []);
 
   const handleLogout = () => {
@@ -22,6 +18,10 @@ const NavBar: React.FC = () => {
     localStorage.removeItem('cartItems');
     setIsLoggedIn(false);
     window.location.href = '/';
+  };
+
+  const handleCartClick = () => {
+    setShowModal(true);
   };
 
   return (
@@ -48,12 +48,10 @@ const NavBar: React.FC = () => {
           {isLoggedIn ? (
             <>
               <li>
-                <Link href="/cart" passHref>
-                  <div className="flex items-center space-x-2 cursor-pointer">
-                    <ShoppingCartIcon className="w-4 h-4" />
-                    <span className="hover:underline">Cart {cartItems.length !== 0 ? `(${cartItems.length})` : ''}</span>
-                  </div>
-                </Link>
+                <div className="flex items-center space-x-2 cursor-pointer" onClick={handleCartClick}>
+                  <ShoppingCartIcon className="w-4 h-4" />
+                  <span className="hover:underline">Cart {cartItems.length !== 0 ? `(${cartItems.length})` : ''}</span>
+                </div>
               </li>
               <li>
                 <button onClick={handleLogout} className="flex items-center space-x-2 cursor-pointer">
@@ -74,6 +72,28 @@ const NavBar: React.FC = () => {
           )}
         </ul>
       </div>
+      {showModal && (
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75 z-50">
+          <div className="bg-white p-4 rounded shadow-lg text-gray-800">
+            <h2 className="text-xl font-bold mb-4">Your Cart</h2>
+            {cartItems.length === 0 ? (
+            <span>No Items ...</span>
+            ) : 
+            cartItems.map((item, index) => (
+              <div key={index} className="flex items-center justify-between border-b border-gray-300 py-2">
+                <span>{item.title}</span>
+                <span>${item.price}</span>
+              </div>
+            ))
+            }
+            <div className="mt-4 flex justify-end">
+              <button onClick={() => setShowModal(false)} className="text-blue-500 hover:underline">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
