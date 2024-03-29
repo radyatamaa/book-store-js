@@ -1,8 +1,8 @@
-// LoginPage.tsx
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import { CustomerResponse, Customer } from '../types/customer';
+import Modal from '../components/Modal'; // Assuming the Modal component is in the same directory as LoginPage.tsx
 
 interface Props {
   customers: Customer[];
@@ -12,25 +12,33 @@ const LoginPage: React.FC<Props> = ({ customers: initialCustomers }) => {
   const [customers, setCustomers] = useState<Customer[]>(initialCustomers);
   const [customerLogin, setCustomerLogin] = useState('customer');
   const [loading, setLoading] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState({ message: '', status: '' });
   const router = useRouter();
 
   const handleLogin = async () => {
     setLoading(true);
     try {
       if (customerLogin === 'customer' || !customerLogin) {
-        alert(`Login failed: please choose the customer`);
+        setModalMessage({ message: 'Please choose a customer', status: 'failed' });
+        setModalOpen(true);
       } else {
-        // Lakukan validasi atau panggil API untuk login
-        // Contoh sederhana hanya menampilkan data yang diinput
+        // Login logic
         localStorage.setItem('customerLogin', customerLogin); // Simpan customer type ke local storage
-        alert(`Login success`);
-        // Redirect ke halaman utama setelah login berhasil
-        router.push('/');
+        setModalMessage({ message: 'Login success', status: 'success' });
+        setModalOpen(true);
       }
     } catch (error) {
       console.error('Login failed:', error);
     }
     setLoading(false);
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+    if (modalMessage.status === 'success') {
+      router.push('/');
+    }
   };
 
   const handleNewCustomer = async () => {
@@ -48,8 +56,8 @@ const LoginPage: React.FC<Props> = ({ customers: initialCustomers }) => {
     localStorage.setItem('customerLogin', JSON.stringify(customer)); // Simpan customer type ke local storage
     // Redirect ke halaman pembuatan akun baru
 
-    alert(`Register success`);
-    router.push('/');
+    setModalMessage({ message: 'Register success', status: 'success' });
+    setModalOpen(true);
   };
 
   return (
@@ -79,6 +87,7 @@ const LoginPage: React.FC<Props> = ({ customers: initialCustomers }) => {
           </button>
         </div>
       </div>
+      <Modal isOpen={modalOpen} onClose={handleModalClose} message={modalMessage} />
     </div>
   );
 };

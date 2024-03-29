@@ -1,6 +1,6 @@
 import { Book } from '../types/book';
 import React, { useState } from 'react';
-import { useRouter } from 'next/router'; // Import useRouter from Next.js
+import { useRouter } from 'next/router'; 
 import { useCart } from '../contexts/CartContext';
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 
 const BookCard: React.FC<Props> = ({ book, onAddToCart }) => {
   const [showModal, setShowModal] = useState(false);
-  const [cartCount, setCartCount] = useState(0); // State untuk jumlah item di keranjang
+  const [cartCount, setCartCount] = useState(0); 
   const { addToCart } = useCart();
   const router = useRouter(); // Initialize useRouter
 
@@ -20,22 +20,12 @@ const BookCard: React.FC<Props> = ({ book, onAddToCart }) => {
 
   const handleAddToCart = () => {
     if (!localStorage.getItem('customerLogin')) {
-      router.push('/login'); // Redirect ke halaman login jika belum login
+      router.push('/login'); 
       return;
     }
-    addToCart(book); // Lakukan logika penambahan item ke keranjang jika sudah login
-    // onAddToCart(); // Panggil fungsi onAddToCart untuk menutup modal, dll.
-    // setCartCount(cartCount + 1); // Update jumlah item di keranjang
+    addToCart(book); 
     setShowModal(false);
   };
-
-  // const addToCart = () => {
-  //   // Implementasi logika penambahan item ke keranjang
-  //   // Misalnya, menyimpan informasi buku ke dalam keranjang belanja
-  //   const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-  //   cartItems.push(book);
-  //   localStorage.setItem('cartItems', JSON.stringify(cartItems));
-  // };
 
   return (
     <>

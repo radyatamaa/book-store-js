@@ -2,11 +2,16 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { HomeIcon, ShoppingCartIcon, LoginIcon, StarIcon } from '@heroicons/react/solid';
 import { useCart } from '../contexts/CartContext';
+import Modal from '../components/Modal';
+import { useRouter } from 'next/router';
 
 const NavBar: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { cartItems } = useCart();
   const [showModal, setShowModal] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
     const customerLogin = localStorage.getItem('customerLogin');
@@ -17,6 +22,8 @@ const NavBar: React.FC = () => {
     localStorage.removeItem('customerLogin');
     localStorage.removeItem('cartItems');
     setIsLoggedIn(false);
+    setModalMessage('Logout success');
+    setModalOpen(true);
     window.location.href = '/';
   };
 
