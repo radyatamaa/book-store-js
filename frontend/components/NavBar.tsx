@@ -14,7 +14,7 @@ interface Props {
 const NavBar: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isOrder, setIsOrder] = useState(false);
-  const { cartItems, removeAllCarts  } = useCart();
+  const { cartItems, removeAllCarts,removeFromCart  } = useCart();
   const [showModal, setShowModal] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState({ message: '', status: '' });
@@ -69,6 +69,9 @@ const NavBar: React.FC = () => {
     setShowModal(false);
   };
   
+  const handleDeleteItem = (book: Book) => {
+    removeFromCart(book);
+  }
   return (
     <nav className="bg-gray-800 text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
@@ -142,6 +145,11 @@ const NavBar: React.FC = () => {
                     <tr key={index} className="border-b border-gray-300">
                       <td className="py-2">{item.title}</td>
                       <td className="py-2">${item.price}</td>
+                      <td className="py-2">
+                        <button onClick={() => handleDeleteItem(item)} className="text-red-500 hover:text-red-700">
+                          Delete
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
