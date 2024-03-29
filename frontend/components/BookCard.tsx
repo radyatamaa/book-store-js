@@ -43,9 +43,9 @@ const BookCard: React.FC<Props> = ({ book, onAddToCart }) => {
       {showModal && (
         <div className="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-4 rounded shadow-lg">
-          <img src={book.cover_image} alt={book.title} className="object-cover max-h-full" />
+            <img src={book.cover_image} alt={book.title} className="object-cover max-h-full" />
             <p className="font-bold">{book.title}</p>
-            <p>{book.name}</p>
+            <p>{book.description}</p>
             <p className="text-gray-800 font-bold mt-2">${book.price}</p>
             <button onClick={onAddToCart} className="bg-blue-500 text-white px-4 py-2 mt-4 rounded">
               Add to Cart
@@ -61,4 +61,3 @@ const BookCard: React.FC<Props> = ({ book, onAddToCart }) => {
 };
 
 export default BookCard;
-

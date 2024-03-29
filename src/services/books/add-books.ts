@@ -12,7 +12,7 @@ export const buildAddBooks = ({
 	return async body => {
 		const bookData = validateBook(body);
 		return BooksRepository.create({
-			name: bookData.name,
+			description: bookData.description,
 			title: bookData.title,
 			writer: bookData.writer,
 			cover_image: bookData.cover_image,

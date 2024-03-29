@@ -23,7 +23,7 @@ describe('list-books', () => {
 	});
 
 	it('returns books when no parameters are given', async () => {
-		await BooksRepository.create({ name: 'book1 ' });
+		await BooksRepository.create({ description: 'book1 ' });
 		const books = await listBooks();
 
 		expect(books).toHaveLength(1);

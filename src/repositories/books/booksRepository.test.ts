@@ -22,7 +22,7 @@ describe('repositories:books', () => {
 	describe('findAll', () => {
 		it('returns books when no parameters are given', async () => {
 			await BooksRepository.create({
-				name: 'book1',
+				description: 'book1',
 			});
 
 			const books = await BooksRepository.findAll();
@@ -34,7 +34,7 @@ describe('repositories:books', () => {
 	describe('create', () => {
 		it('returns created book when valid data is given', async () => {
 			const book = await BooksRepository.create({
-				name: 'book1',
+				description: 'book1',
 			});
 
 			expect(book).not.toBeEmpty();

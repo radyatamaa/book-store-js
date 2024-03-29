@@ -25,7 +25,7 @@ describe('add-books', () => {
 	});
 
 	it('returns added book when valid data is given', async () => {
-		const book = await addBooks({ name: 'book1' });
+		const book = await addBooks({ description: 'book1' });
 
 		expect(book).not.toBeEmpty();
 	});
@@ -34,7 +34,7 @@ describe('add-books', () => {
 		try {
 			const invalidName = '';
 
-			await addBooks({ name: invalidName });
+			await addBooks({ description: invalidName });
 		} catch (error) {
 			expect(error).toBeInstanceOf(ClientError);
 		}

@@ -10,8 +10,8 @@ export const validateBook = (data: IBookEntityAttributes) => {
 				.required()
 				.min(1)
 				.max(20)
-				.label('name'),
-				title: Joi.string(),
+				.label('title'),
+				description: Joi.string(),
 				writer: Joi.string(),
 				cover_image: Joi.string(),
 				price: Joi.number(),

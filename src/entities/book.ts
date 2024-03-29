@@ -1,8 +1,8 @@
 import { DataTypes, Model, Sequelize } from 'sequelize';
 
 export interface IBookEntityAttributes {
-	name: string;
-	title: string;
+    title: string;
+	description: string;
     writer: string;
     cover_image: string;
     price: number;
@@ -19,11 +19,11 @@ export const buildBookEntity = (sequelize: Sequelize, name: string) => {
                 primaryKey: true,
                 autoIncrement: true,
             },
-            name: {
+            title: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
-            title: {
+            description: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },

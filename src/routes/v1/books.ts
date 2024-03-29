@@ -79,9 +79,9 @@ router.get('/:id', buildExpressCallback(getBook));
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               decription:
  *                 type: string
- *                 description: The name of the book.
+ *                 description: The decription of the book.
  *               title:
  *                 type: string
  *                 description: The title of the book.
