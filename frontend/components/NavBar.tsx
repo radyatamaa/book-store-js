@@ -13,7 +13,7 @@ const NavBar: React.FC = () => {
   const handleLogout = () => {
     localStorage.removeItem('customerType');
     setIsLoggedIn(false);
-    window.location.href = '/login'; // Redirect ke halaman login
+    window.location.href = '/'; 
   };
 
   return (
