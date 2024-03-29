@@ -4,10 +4,12 @@ import { HomeIcon, ShoppingCartIcon, LoginIcon, StarIcon } from '@heroicons/reac
 import { useCart } from '../contexts/CartContext';
 import Modal from '../components/Modal';
 import { useRouter } from 'next/router';
+import { Book } from '../types/book';
 
 const NavBar: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const { cartItems } = useCart();
+  const [isOrder, setIsOrder] = useState(false);
+  const { cartItems, removeAllCarts  } = useCart();
   const [showModal, setShowModal] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState({ message: '', status: '' });
@@ -32,14 +34,27 @@ const NavBar: React.FC = () => {
     if (modalMessage.status === 'success') {
       window.location.href = '/';
     }
+    if (isOrder) {
+      removeAllCarts();
+      window.location.href = '/';
+    }
   };
   const handleCartClick = () => {
     setShowModal(true);
   };
 
-  const calculateTotal = (items) => {
+  const calculateTotal = (items: Book[]) => {
     return items.reduce((total, item) => total + item.price, 0);
   };
+
+  const handleOrder = () => {
+    setModalMessage({ message: 'Order success', status: 'success' });
+    setModalOpen(true);
+    setIsOrder(true);
+    // Close the modal
+    setShowModal(false);
+  };
+  
   return (
     <nav className="bg-gray-800 text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
@@ -118,10 +133,15 @@ const NavBar: React.FC = () => {
                 </tfoot>
               </table>
             )}
-            <div className="mt-4 flex justify-end">
+            <div className="mt-4 flex justify-between">
               <button onClick={() => setShowModal(false)} className="text-blue-500 hover:underline">
                 Close
               </button>
+              {cartItems.length > 0 && (
+              <button onClick={handleOrder} className="bg-blue-500 text-white px-4 py-2 rounded">
+                Order Now
+              </button>
+              )}
             </div>
           </div>
         </div>
