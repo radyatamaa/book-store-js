@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { HomeIcon, ShoppingCartIcon, LoginIcon, StarIcon } from '@heroicons/react/solid';
+import { HomeIcon, ShoppingCartIcon, LoginIcon, StarIcon, CashIcon } from '@heroicons/react/solid';
 import { useCart } from '../contexts/CartContext';
 import Modal from '../components/Modal';
 import { useRouter } from 'next/router';
 import { Book } from '../types/book';
+import { Customer } from '../types/customer';
+
+interface Props {
+  customerProfile: Customer;
+}
 
 const NavBar: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,6 +32,15 @@ const NavBar: React.FC = () => {
     setModalMessage({ message: 'Logout success', status: 'success' });
     setModalOpen(true);
    
+  };
+
+  const getCustomerPoints = () => {
+    const customerData = localStorage.getItem('customerLogin');
+    if (customerData) {
+      const { points } = JSON.parse(customerData);
+      return points;
+    }
+    return 0; // Default value if customerData is not found
   };
 
   const handleModalClose = () => {
@@ -82,6 +96,12 @@ const NavBar: React.FC = () => {
                 <div className="flex items-center space-x-2 cursor-pointer" onClick={handleCartClick}>
                   <ShoppingCartIcon className="w-4 h-4" />
                   <span className="hover:underline">Cart {cartItems.length !== 0 ? `(${cartItems.length})` : ''}</span>
+                </div>
+              </li>
+              <li>
+                <div className="flex items-center space-x-2">
+                  <CashIcon className="w-4 h-4" />
+                  <span>Point {getCustomerPoints()}</span>
                 </div>
               </li>
               <li>
