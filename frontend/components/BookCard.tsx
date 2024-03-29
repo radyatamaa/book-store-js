@@ -19,7 +19,7 @@ const BookCard: React.FC<Props> = ({ book, onAddToCart }) => {
   };
 
   const handleAddToCart = () => {
-    if (!localStorage.getItem('customerType')) {
+    if (!localStorage.getItem('customerLogin')) {
       router.push('/login'); // Redirect ke halaman login jika belum login
       return;
     }

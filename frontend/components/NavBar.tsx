@@ -9,12 +9,12 @@ const NavBar: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    const customerType = localStorage.getItem('customerType');
-    setIsLoggedIn(!!customerType);
+    const customerLogin = localStorage.getItem('customerLogin');
+    setIsLoggedIn(!!customerLogin);
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem('customerType');
+    localStorage.removeItem('customerLogin');
     localStorage.removeItem('cartItems');
     setIsLoggedIn(false);
     window.location.href = '/';
@@ -56,7 +56,7 @@ const NavBar: React.FC = () => {
               <li>
                 <button onClick={handleLogout} className="flex items-center space-x-2 cursor-pointer">
                   <LoginIcon className="w-4 h-4" />
-                  <span>Logout</span>
+                  <span className="hover:underline">Logout</span>
                 </button>
               </li>
             </>

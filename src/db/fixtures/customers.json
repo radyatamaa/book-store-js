@@ -1,0 +1,9 @@
+[
+	{
+		"model": "Customer",
+		"data": {
+			"name": "Customer 1",
+			"points": 100
+		}
+	}
+]

@@ -47,6 +47,7 @@ export class DB {
 
 	loadFixtures() {
 		sequelizeFixtures.loadFile('src/db/fixtures/books.json', this.models);
+		sequelizeFixtures.loadFile('src/db/fixtures/customers.json', this.models);
 	}
 
 	async clearTable({ name }: { name: string }) {
