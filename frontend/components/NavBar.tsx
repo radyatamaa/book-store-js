@@ -5,11 +5,6 @@ import { useCart } from '../contexts/CartContext';
 import Modal from '../components/Modal';
 import { useRouter } from 'next/router';
 import { Book } from '../types/book';
-import { Customer } from '../types/customer';
-
-interface Props {
-  customerProfile: Customer;
-}
 
 const NavBar: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -62,9 +57,16 @@ const NavBar: React.FC = () => {
   };
 
   const handleOrder = () => {
-    setModalMessage({ message: 'Order success', status: 'success' });
-    setModalOpen(true);
-    setIsOrder(true);
+    const points = getCustomerPoints();
+    if (calculateTotal(cartItems) > points) {
+      setModalMessage({ message: 'Your points are not enough to order', status: 'failed' });
+      setModalOpen(true);
+      setIsOrder(false);
+    } else {
+      setModalMessage({ message: 'Order success', status: 'success' });
+      setModalOpen(true);
+      setIsOrder(true);
+    }
     // Close the modal
     setShowModal(false);
   };

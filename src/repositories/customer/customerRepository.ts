@@ -1,10 +1,11 @@
 import { ModelInstance } from '../../db';
 import { ICustomerEntityAttributes } from '../../entities/customer';
+import { Model } from 'sequelize';
 
 export interface ICustomerRepository {
-	findAll: () => Promise<ModelInstance[]>;
-    findById: (id: number) => Promise<ModelInstance | null>;
-	create: (data: ICustomerEntityAttributes) => Promise<ModelInstance>;
+	findAll: () => Promise<Model<ICustomerEntityAttributes>[]>;
+    findById: (id: number) => Promise<Model<ICustomerEntityAttributes> | null>;
+	create: (data: ICustomerEntityAttributes) =>Promise<Model<ICustomerEntityAttributes>>;
 }
 
 export const buildCustomerRepository = ({

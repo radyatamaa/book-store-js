@@ -6,7 +6,7 @@
 			"title": "Slow Horses",
 			"writer": "Mick Herron",
 			"cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-			"price": 1000,
+			"price": 30,
 			"tags":["fiction", "non-fiction", "science", "essay"]
 		}
 	},
@@ -17,7 +17,7 @@
             "title": "The Catcher in the Rye",
             "writer": "J.D. Salinger",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 15000,
+            "price": 50,
             "tags": ["fiction", "novel"]
         }
     },
@@ -28,7 +28,7 @@
             "title": "To Kill a Mockingbird",
             "writer": "Harper Lee",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 12000,
+            "price": 20,
             "tags": ["fiction", "novel"]
         }
     },
@@ -39,7 +39,7 @@
 			"title": "1984",
             "writer": "George Orwell",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 11000,
+            "price": 10,
             "tags": ["fiction", "dystopian", "novel"]
         }
     },
@@ -50,7 +50,7 @@
             "title": "Pride and Prejudice",
             "writer": "Jane Austen",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 13000,
+            "price": 50,
             "tags": ["fiction", "romance", "novel"]
         }
     },
@@ -61,7 +61,7 @@
             "title": "The Great Gatsby",
             "writer": "F. Scott Fitzgerald",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 14000,
+            "price": 70,
             "tags": ["fiction", "novel"]
         }
     },
@@ -72,7 +72,7 @@
             "title": "Moby Dick",
             "writer": "Herman Melville",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 16000,
+            "price": 23,
             "tags": ["fiction", "novel"]
         }
     },
@@ -83,7 +83,7 @@
             "title": "Jane Eyre",
             "writer": "Charlotte Bronte",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 12500,
+            "price": 51,
             "tags": ["fiction", "romance", "novel"]
         }
     },
@@ -94,7 +94,7 @@
             "title": "The Adventures of Huckleberry Finn",
             "writer": "Mark Twain",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 11500,
+            "price": 51,
             "tags": ["fiction", "novel"]
         }
     },
@@ -105,7 +105,7 @@
             "title": "The Odyssey",
             "writer": "Homer",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 13500,
+            "price": 66,
             "tags": ["fiction", "epic", "poetry"]
         }
     },
@@ -116,7 +116,7 @@
             "title": "Wuthering Heights",
             "writer": "Emily Bronte",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 14500,
+            "price": 77,
             "tags": ["fiction", "gothic", "novel"]
         }
     },
@@ -127,7 +127,7 @@
             "title": "Frankenstein",
             "writer": "Mary Shelley",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 15500,
+            "price": 45,
             "tags": ["fiction", "gothic", "novel"]
         }
     },
@@ -138,7 +138,7 @@
             "title": "The Picture of Dorian Gray",
             "writer": "Oscar Wilde",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 16500,
+            "price": 23,
             "tags": ["fiction", "gothic", "novel"]
         }
     },
@@ -149,7 +149,7 @@
             "title": "The Time Machine",
             "writer": "H.G. Wells",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 17500,
+            "price": 12,
             "tags": ["fiction", "science fiction", "novel"]
         }
     },
@@ -160,7 +160,7 @@
             "title": "Dracula",
             "writer": "Bram Stoker",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 18500,
+            "price": 22,
             "tags": ["fiction", "gothic", "horror", "novel"]
         }
     },
@@ -171,7 +171,7 @@
             "title": "Alice's Adventures in Wonderland",
             "writer": "Lewis Carroll",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 19500,
+            "price": 33,
             "tags": ["fiction", "fantasy", "novel"]
         }
     },
@@ -182,7 +182,7 @@
             "title": "The Call of the Wild",
             "writer": "Jack London",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 20500,
+            "price": 42,
             "tags": ["fiction", "adventure", "novel"]
         }
     },
@@ -193,7 +193,7 @@
             "title": "The War of the Worlds",
             "writer": "H.G. Wells",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 21500,
+            "price": 12,
             "tags": ["fiction", "science fiction", "novel"]
         }
     },
@@ -204,7 +204,7 @@
             "title": "Little Women",
             "writer": "Louisa May Alcott",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 22500,
+            "price": 42,
             "tags": ["fiction", "novel"]
         }
     },
@@ -215,7 +215,7 @@
             "title": "The Count of Monte Cristo",
             "writer": "Alexandre Dumas",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 23500,
+            "price": 43,
             "tags": ["fiction", "adventure", "novel"]
         }
     },
@@ -226,7 +226,7 @@
             "title": "The Brothers Karamazov",
             "writer": "Fyodor Dostoevsky",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 24500,
+            "price": 54,
             "tags": ["fiction", "novel"]
         }
     },
@@ -237,7 +237,7 @@
             "title": "Crime and Punishment",
             "writer": "Fyodor Dostoevsky",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 25500,
+            "price": 65,
             "tags": ["fiction", "novel"]
         }
     },
@@ -248,7 +248,7 @@
             "title": "Les Misérables",
             "writer": "Victor Hugo",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 26500,
+            "price": 45,
             "tags": ["fiction", "novel"]
         }
     },
@@ -259,7 +259,7 @@
             "title": "Anna Karenina",
             "writer": "Leo Tolstoy",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 27500,
+            "price": 34,
             "tags": ["fiction", "novel"]
         }
     },
@@ -270,7 +270,7 @@
             "title": "War and Peace",
             "writer": "Leo Tolstoy",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 28500,
+            "price": 34,
             "tags": ["fiction", "novel"]
         }
     },
@@ -281,7 +281,7 @@
             "title": "The Hobbit",
             "writer": "J.R.R. Tolkien",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 29500,
+            "price": 12,
             "tags": ["fiction", "fantasy", "novel"]
         }
     },
@@ -292,7 +292,7 @@
             "title": "The Lord of the Rings",
             "writer": "J.R.R. Tolkien",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 30500,
+            "price": 32,
             "tags": ["fiction", "fantasy", "novel"]
         }
     },
@@ -303,7 +303,7 @@
             "title": "Gulliver's Travels",
             "writer": "Jonathan Swift",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 31500,
+            "price": 23,
             "tags": ["fiction", "novel"]
         }
     },
@@ -314,7 +314,7 @@
             "title": "A Tale of Two Cities",
             "writer": "Charles Dickens",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 32500,
+            "price": 12,
             "tags": ["fiction", "novel"]
         }
     },
@@ -325,7 +325,7 @@
             "title": "The Adventures of Sherlock Holmes",
             "writer": "Arthur Conan Doyle",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 33500,
+            "price": 56,
             "tags": ["fiction", "mystery", "short stories"]
         }
     },
@@ -336,7 +336,7 @@
             "title": "The Complete Works of William Shakespeare",
             "writer": "William Shakespeare",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 34500,
+            "price": 65,
             "tags": ["fiction", "drama", "plays"]
         }
     },
@@ -347,7 +347,7 @@
             "title": "The Divine Comedy",
             "writer": "Dante Alighieri",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 35500,
+            "price": 67,
             "tags": ["fiction", "epic", "poetry"]
         }
     },
@@ -358,7 +358,7 @@
             "title": "Don Quixote",
             "writer": "Miguel de Cervantes",
             "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51Ga5GuElyL._AC_SX184_.jpg",
-            "price": 36500,
+            "price": 78,
             "tags": ["fiction", "novel"]
         }
     }

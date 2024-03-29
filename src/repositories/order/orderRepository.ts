@@ -1,10 +1,11 @@
 import { ModelInstance } from '../../db';
 import { IOrderEntityAttributes } from '../../entities/order';
+import { Model } from 'sequelize';
 
 export interface IOrderRepository {
-	findAll: () => Promise<ModelInstance[]>;
-    findById: (id: number) => Promise<ModelInstance | null>;
-	create: (data: IOrderEntityAttributes) => Promise<ModelInstance>;
+    findAll: () => Promise<Model<IOrderEntityAttributes>[]>;
+    findById: (id: number) =>  Promise<Model<IOrderEntityAttributes> | null>;
+	create: (data: IOrderEntityAttributes) => Promise<Model<IOrderEntityAttributes>>;
 }
 
 export const buildOrderRepository = ({

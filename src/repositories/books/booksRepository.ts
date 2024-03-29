@@ -1,11 +1,12 @@
 import { ModelInstance } from '../../db';
 import { IBookEntityAttributes } from '../../entities/book';
+import { Model } from 'sequelize';
 
 export interface IBooksRepository {
-    findAll: () => Promise<ModelInstance[]>;
-    findById: (id: number) => Promise<ModelInstance | null>;
-    create: (data: IBookEntityAttributes) => Promise<ModelInstance>;
-    findWithPagination: (page: number, limit: number) => Promise<{ rows: ModelInstance[], count: number }>;
+    findAll: () => Promise<Model<IBookEntityAttributes>[]>;
+    findById: (id: number) =>  Promise<Model<IBookEntityAttributes> | null>;
+    create: (data: IBookEntityAttributes) => Promise<Model<IBookEntityAttributes>>;
+    findWithPagination: (page: number, limit: number) => Promise<{ rows: Model<IBookEntityAttributes>[], count: number }>;
 }
 
 export const buildBooksRepository = ({
