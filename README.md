@@ -15,12 +15,44 @@
 ## Getting Started
 
 1. Install `Postgres` and start `Postgres.server`.
-2. Install Node V.14.20.1
+2. Install Node v18.17.0
 3. Create database `book_store` for development and \
   `book_store_test` for test
 4. `npm install`
 5. `npm run dev`
 6. For test, run `npm test`
+
+## How To Run This Project
+
+```bash
+# move to project
+cd book-store-js
+
+# check/edit the config
+nano default.json
+
+# install packages backend
+npm install
+
+# run npm
+npm run dev
+
+# open project front end in cmd
+cd frontend
+
+# install packages frontend
+npm install
+
+# run npm
+npm run dev
+
+# Open at browser the backend swagger
+http://localhost:8084/swagger/
+
+# Open at browser the frondend
+http://localhost:8085
+
+```
 
 ## Folder Structure
 
@@ -51,7 +83,3 @@
 
 - Services:
   It handles validations via `models-validation` and use `repositories` to interact with database or business logic.
-
-## Reference
-
-This repository is heavily inspired by [dev-master](https://github.com/dev-mastery) and [his repo - comments api](https://github.com/dev-mastery/comments-api).
