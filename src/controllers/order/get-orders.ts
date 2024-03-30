@@ -8,7 +8,7 @@ export const buildGetOrder = ({ listOrder }: { listOrder: IListOrder }) => {
 	return async (
 		request: Partial<IHttpRequest>,
 	): Promise<IControllerResponse> => {
-		const order = await listOrder();
+		const order = await listOrder(request.query);
 
 		return {
 			success: true,

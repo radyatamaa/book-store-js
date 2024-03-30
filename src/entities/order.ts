@@ -6,6 +6,7 @@ export interface IOrderEntityAttributes {
     bookId: number;
     quantity: number;
     order_date: Date;
+    book_data: string;
 }
 
 export const buildOrderEntity = (sequelize: Sequelize, name: string) => {
@@ -28,6 +29,10 @@ export const buildOrderEntity = (sequelize: Sequelize, name: string) => {
             },
             quantity: {
                 type: DataTypes.INTEGER,
+                allowNull: false,
+            },
+            book_data: {
+                type: DataTypes.JSON,
                 allowNull: false,
             },
             order_date: {

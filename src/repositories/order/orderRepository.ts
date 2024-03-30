@@ -6,6 +6,7 @@ export interface IOrderRepository {
     findAll: () => Promise<Model<IOrderEntityAttributes>[]>;
     findById: (id: number) =>  Promise<Model<IOrderEntityAttributes> | null>;
 	create: (data: IOrderEntityAttributes) => Promise<Model<IOrderEntityAttributes>>;
+	findWithPagination: (page: number, limit: number,customerId: number) => Promise<{ rows: Model<IOrderEntityAttributes>[], count: number }>;
 }
 
 export const buildOrderRepository = ({
@@ -25,9 +26,16 @@ export const buildOrderRepository = ({
 		return db.create(data);
 	};
 
+	const findWithPagination = async (page: number, limit: number, customerId:number) => {
+        const offset = (page - 1) * limit;
+        const { rows, count } = await db.findAndCountAll({ where: { customerId },offset, limit });
+        return { rows, count };
+    };
+
 	return {
 		findAll,
         findById,
 		create,
+		findWithPagination
 	};
 };

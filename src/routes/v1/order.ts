@@ -18,6 +18,25 @@ const router = Router();
  *     summary: Get all order
  *     description: Retrieve a list of all order.
  *     tags: [Order]
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         required: true
+ *         description: page
+ *         schema:
+ *           type: number
+ *       - in: query
+ *         name: limit
+ *         required: true
+ *         description: limit
+ *         schema:
+ *           type: number
+ *       - in: query
+ *         name: customerId
+ *         required: true
+ *         description: customerId
+ *         schema:
+ *           type: number
  *     responses:
  *       '200':
  *         description: A list of order.

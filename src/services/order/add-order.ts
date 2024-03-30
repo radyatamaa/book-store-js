@@ -46,6 +46,7 @@ export const buildAddOrder = ({
 			bookId: orderData.bookId,
 			quantity: orderData.quantity,
 			order_date: orderData.order_date,
+			book_data: JSON.stringify(book)
 		});
 
 		customerAttributes.points = customerAttributes.points - totalPrice;
