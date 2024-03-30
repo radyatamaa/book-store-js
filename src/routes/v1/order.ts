@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getOrder, postOrder } from '../../controllers/order';
+import { getOrder, postOrder,deleteOrder } from '../../controllers/order';
 import { buildExpressCallback } from '../../helpers/express-callback';
 
 const router = Router();
@@ -71,5 +71,31 @@ router.get('/', buildExpressCallback(getOrder));
  *         description: Book created successfully.
  */
 router.post('/', buildExpressCallback(postOrder));
+
+/**
+ * @swagger
+ * /v1/order/{id}:
+ *   delete:
+ *     summary: Cancel a order by ID
+ *     description: Cancel a order by its ID.
+ *     tags: [Order]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID of the order to retrieve
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: A order object
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Book'
+ *       '404':
+ *         description: Book not found
+ */
+router.delete('/:id', buildExpressCallback(deleteOrder));
 
 export default router;

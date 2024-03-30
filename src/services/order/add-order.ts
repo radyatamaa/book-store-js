@@ -26,7 +26,7 @@ export const buildAddOrder = ({
 		}
 
 		const customerAttributes = customer.get() as ICustomerEntityAttributes;
-		const points = (customerAttributes as ICustomerEntityAttributes).points;
+		const points = customerAttributes.points;
 		
 		const book = await booksRepository.findById(orderData.bookId);
 		if (!book) {
@@ -34,7 +34,7 @@ export const buildAddOrder = ({
 		}
 
 		const bookAttributes = book.get() as IBookEntityAttributes;
-		const price = (bookAttributes as IBookEntityAttributes).price;
+		const price = bookAttributes.price;
 
 		const totalPrice = price * orderData.quantity;
 		if (totalPrice > points) {

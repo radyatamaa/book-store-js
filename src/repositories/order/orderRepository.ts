@@ -7,6 +7,7 @@ export interface IOrderRepository {
     findById: (id: number) =>  Promise<Model<IOrderEntityAttributes> | null>;
 	create: (data: IOrderEntityAttributes) => Promise<Model<IOrderEntityAttributes>>;
 	findWithPagination: (page: number, limit: number,customerId: number) => Promise<{ rows: Model<IOrderEntityAttributes>[], count: number }>;
+    deleteData: (id: number) => Promise<number>;
 }
 
 export const buildOrderRepository = ({
@@ -32,10 +33,15 @@ export const buildOrderRepository = ({
         return { rows, count };
     };
 
+    const deleteData = async (id: number) => {
+		return db.destroy({ where: { id } });
+	};
+
 	return {
 		findAll,
         findById,
 		create,
-		findWithPagination
+		findWithPagination,
+        deleteData
 	};
 };
