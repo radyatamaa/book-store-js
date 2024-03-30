@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getCustomer, postCustomer } from '../../../src/controllers/customer';
+import { getCustomers, postCustomer,getCustomer } from '../../../src/controllers/customer';
 import { buildExpressCallback } from '../../../src/helpers/express-callback';
 
 const router = Router();
@@ -22,7 +22,34 @@ const router = Router();
  *       '200':
  *         description: A list of customer.
  */
-router.get('/', buildExpressCallback(getCustomer));
+router.get('/', buildExpressCallback(getCustomers));
+
+
+/**
+ * @swagger
+ * /v1/customer/{id}:
+ *   get:
+ *     summary: Get a customer by ID
+ *     description: Retrieve a customer by its ID.
+ *     tags: [Customer]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID of the customer to retrieve
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: A customer object
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Book'
+ *       '404':
+ *         description: Book not found
+ */
+router.get('/:id', buildExpressCallback(getCustomer));
 
 /**
  * @swagger

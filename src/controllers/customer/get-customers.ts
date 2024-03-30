@@ -4,7 +4,7 @@ import { IListCustomer } from '../../services/customer/list-customer';
 
 import { IControllerResponse } from '..';
 
-export const buildGetCustomer = ({ listCustomer }: { listCustomer: IListCustomer }) => {
+export const buildGetCustomers = ({ listCustomer }: { listCustomer: IListCustomer }) => {
 	return async (
 		request: Partial<IHttpRequest>,
 	): Promise<IControllerResponse> => {

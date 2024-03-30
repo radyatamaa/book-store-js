@@ -1,7 +1,9 @@
-import { addCustomer, listCustomer } from '../../services/customer';
+import { addCustomer, listCustomer,detailCustomer } from '../../services/customer';
 
-import { buildGetCustomer } from './get-customers';
+import { buildGetCustomers } from './get-customers';
+import { buildGetCustomer } from './detail-customer';
 import { buildPostCustomer } from './post-customer';
 
-export const getCustomer = buildGetCustomer({ listCustomer });
+export const getCustomers = buildGetCustomers({ listCustomer });
+export const getCustomer = buildGetCustomer({ detailCustomer });
 export const postCustomer = buildPostCustomer({ addCustomer });
