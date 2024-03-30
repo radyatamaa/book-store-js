@@ -51,8 +51,15 @@ http://localhost:8084/swagger/
 
 # Open at browser the frondend
 http://localhost:8085
-
 ```
+## Notes
+You don't need to create table or add the data cause the data and table has been automaticly sync each app backend start , you need only create a database 'book_store'
+
+## The App
+### 1 . Swagger
+![Swagger](https://github.com/radyatamaa/book-store-js/blob/dev/swagger.png)
+### 2 . Web
+![Web](https://github.com/radyatamaa/book-store-js/blob/dev/web.png)
 
 ## Folder Structure
 
