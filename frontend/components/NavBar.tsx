@@ -154,7 +154,7 @@ const NavBar: React.FC = () => {
               <li>
                 <div className="flex items-center space-x-2">
                   <CashIcon className="w-4 h-4" />
-                  <span>Point {getCustomerPoints()}</span>
+                  <span> {getCustomerPoints()} Point</span>
                 </div>
               </li>
               <li>
