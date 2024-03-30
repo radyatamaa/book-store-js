@@ -47,7 +47,7 @@ const OrderListPage: React.FC = () => {
 
   const handleDeleteOrder = async (orderId: number) => {
     try {
-      await axios.cancel(`http://localhost:3000/v1/order/${orderId}`);
+      await axios.delete(`http://localhost:3000/v1/order/${orderId}`);
       const updatedOrders = orders.filter(order => order.id !== orderId);
       setOrders(updatedOrders);
       setModalMessage({ message: 'Order has been successfully canceled!', status: 'success' });
