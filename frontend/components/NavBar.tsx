@@ -68,9 +68,6 @@ const NavBar: React.FC = () => {
       window.location.href = '/';
     }
     if (isOrder) {
-      cartItems.map((item, index) => {
-          createOrder(item);
-      });
       removeAllCarts();
       window.location.href = '/order';
     }
@@ -83,28 +80,31 @@ const NavBar: React.FC = () => {
     return items.reduce((total, item) => total + item.price, 0);
   };
 
-  const createOrder = async (item: Book) => {
+  const createOrders = async (items: Book[]) => {
     setLoading(true);
     try {   
       const customer = await getCustomerProfile();
 
-      const res = await axios.post<CreateOrderResponse>('http://localhost:3000/v1/order',
-        {
-          bookId: item.id, 
-          quantity: 1, 
-          customerId: customer?.id
-        } as CreateOrderRequest, {
-        headers: {
-          'Content-Type': 'application/json',
-          'accept': 'application/json'
-        }
-      });
+      for (let i = 0; i < items.length; i++) {
+          const res = await axios.post<CreateOrderResponse>('http://localhost:3000/v1/order',
+          {
+            bookId: items[i].id, 
+            quantity: 1, 
+            customerId: customer?.id
+          } as CreateOrderRequest, {
+          headers: {
+            'Content-Type': 'application/json',
+            'accept': 'application/json'
+          }
+        });
 
-      if (res.data.error) {
-        setModalMessage({ message: res.data.error.message, status: 'failed' });
-        setModalOpen(true);
-        setIsOrder(false);
+        if (res.data.error) {
+          setModalMessage({ message: res.data.error.message, status: 'failed' });
+          setModalOpen(true);
+          setIsOrder(false);
+        }
       }
+
     } catch (error) {
       console.error('Failed to create order:', error);
     }
@@ -118,6 +118,7 @@ const NavBar: React.FC = () => {
       setModalOpen(true);
       setIsOrder(false);
     } else {
+      createOrders(cartItems);
       setModalMessage({ message: 'Order success', status: 'success' });
       setModalOpen(true);
       setIsOrder(true);
