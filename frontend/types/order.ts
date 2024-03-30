@@ -30,13 +30,18 @@ export interface CreateOrderRequest {
     id: number;
     customerId: number;
     bookId: number;
-    book: Book;
     quantity: number;
+    book_data:string;
+  }
+
+  export interface OrderData {
+    rows:ListOrder[];
+    count:number;
   }
 
   export interface ListOrderResponse {
     success:boolean;
     statusCode:number;
-    data: ListOrder[];
+    data: OrderData;
     error?: ErrorResponse;
   }
