@@ -177,7 +177,7 @@ const NavBar: React.FC = () => {
               <Link href="/login" passHref>
                 <div className="flex items-center space-x-2 cursor-pointer">
                   <LoginIcon className="w-4 h-4" />
-                  <span className="hover:underline">Login</span>
+                  <span className="hover:underline">Log in / Sign Up</span>
                 </div>
               </Link>
             </li>
