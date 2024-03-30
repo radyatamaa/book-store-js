@@ -28,8 +28,8 @@
 # move to project
 cd book-store-js
 
-# check/edit the config
-nano default.json
+# make a config backend
+cp .env.example .env
 
 # install packages backend
 npm install
@@ -42,6 +42,9 @@ cd frontend
 
 # install packages frontend
 npm install
+
+# make a config frontend
+cp .env.example .env
 
 # run npm
 npm run dev
