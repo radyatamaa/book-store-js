@@ -186,53 +186,57 @@ const NavBar: React.FC = () => {
       </div>
       {showModal && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-75 z-50">
-          <div className="bg-white p-4 rounded shadow-lg text-gray-800">
+          <div className="bg-white p-4 rounded-lg shadow-lg text-gray-800" style={{ maxWidth: '600px', maxHeight: '40vh', width: '90%', height: '90%' }}>
             <h2 className="text-xl font-bold mb-4">Your Cart</h2>
             {cartItems.length === 0 ? (
               <span>No Items ...</span>
             ) : (
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-gray-300">
-                    <th className="py-2">Item</th>
-                    <th className="py-2">Qty</th>
-                    <th className="py-2">Price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cartItems.map((item, index) => (
-                    <tr key={index} className="border-b border-gray-300">
-                      <td className="py-2">{item.title}</td>
-                      <td className="py-2">${item.qty}</td>
-                      <td className="py-2">${item.total_price}</td>
-                      <td className="py-2">
-                        <button onClick={() => handleDeleteItem(item)} className="text-red-500 hover:text-red-700">
-                          Delete
-                        </button>
-                      </td>
+              <div className="overflow-x-auto" style={{ maxHeight: 'calc(100% - 100px)' }}>
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-gray-300">
+                      <th className="py-2 px-4 text-left">Item</th>
+                      <th className="py-2 px-4 text-left">Qty</th>
+                      <th className="py-2 px-4 text-left">Price</th>
+                      <th className="py-2 px-4"></th> {/* Empty header for the delete button column */}
                     </tr>
-                  ))}
-                </tbody>
-                <tfoot>
-                  <tr className="border-t border-gray-300">
-                    <td className="py-2 font-bold">Total</td>
-                    <td className="py-2 font-bold">${calculateTotal(cartItems)}</td>
-                  </tr>
-                </tfoot>
-              </table>
+                  </thead>
+                  <tbody>
+                    {cartItems.map((item, index) => (
+                      <tr key={index} className="border-b border-gray-300">
+                        <td className="py-2 px-4">{item.title}</td>
+                        <td className="py-2 px-4">{item.qty}</td>
+                        <td className="py-2 px-4">${item.total_price}</td>
+                        <td className="py-2 px-4">
+                          <button onClick={() => handleDeleteItem(item)} className="text-red-500 hover:text-red-700">
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                  <tfoot>
+                    <tr className="border-t border-gray-300">
+                      <td colSpan="2" className="py-2 px-4 font-bold">Total</td>
+                      <td colSpan="2" className="py-2 px-4 font-bold text-right">${calculateTotal(cartItems)}</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
             )}
-            <div className="mt-4 flex justify-between">
+            <div className="flex justify-end mt-4">
               <button onClick={() => setShowModal(false)} className="text-blue-500 hover:underline">
                 Close
               </button>
               {cartItems.length > 0 && (
-              <button onClick={handleOrder} className="bg-blue-500 text-white px-4 py-2 rounded">
-                Order Now
-              </button>
+                <button onClick={handleOrder} className="bg-blue-500 text-white px-4 py-2 rounded ml-4">
+                  Order Now
+                </button>
               )}
             </div>
           </div>
         </div>
+
       )}
       <Modal isOpen={modalOpen} onClose={handleModalClose} message={modalMessage} />
     </nav>
