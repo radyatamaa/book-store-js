@@ -53,7 +53,7 @@ const NavBar: React.FC = () => {
       console.log('customerData',customerData);
       const customer = JSON.parse(customerData) as Customer;
 
-      const res = await axios.get<CustomerDetailResponse>(`http://localhost:8084/v1/customer/${customer.id}`, {});
+      const res = await axios.get<CustomerDetailResponse>(`${process.env.BASE_URL_API}/v1/customer/${customer.id}`, {});
   
       localStorage.setItem('customerLogin',JSON.stringify(res.data.data));
 
@@ -86,7 +86,7 @@ const NavBar: React.FC = () => {
       const customer = await getCustomerProfile();
 
       for (let i = 0; i < items.length; i++) {
-          const res = await axios.post<CreateOrderResponse>('http://localhost:8084/v1/order',
+          const res = await axios.post<CreateOrderResponse>(`${process.env.BASE_URL_API}/v1/order`,
           {
             bookId: items[i].id, 
             quantity: items[i].qty, 

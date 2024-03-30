@@ -1,5 +1,6 @@
 import bodyParser from 'body-parser';
-import config from 'config';
+import * as dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import { db } from '../src/db';
 import { logger } from '../src/helpers/logger';
@@ -10,11 +11,13 @@ import cors from 'cors';
 
 class Server {
 	app = express();
-	port = 8084 || config.get('port');
+	port = process.env.APP_PORT || 8084;
+	host = process.env.APP_HOST || 'http://localhost';
+	allowCorsOrigin = process.env.APP_ALLOW_CORS_ORIGIN || 'http://localhost:8085';
 
 	applyMiddlewares() {
 		this.app.use(cors({
-  		origin: 'http://localhost:8085', // Allow requests from this origin
+  		origin: this.allowCorsOrigin, // Allow requests from this origin
   			optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 		}));
 		this.app.use(bodyParser.json());
@@ -33,7 +36,7 @@ class Server {
 			},
 			servers: [
 				{
-				url: `http://localhost:${this.port}`
+				url: `${this.host}`
 				}
 			]
 			},

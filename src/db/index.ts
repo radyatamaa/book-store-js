@@ -1,10 +1,10 @@
-import config from 'config';
 import { Model, Sequelize, Options } from 'sequelize';
 import sequelizeFixtures from 'sequelize-fixtures';
 import { logger } from '../../src/helpers/logger';
 import { buildBookEntity } from '../entities/book';
 import { buildCustomerEntity } from '../entities/customer';
 import { buildOrderEntity } from '../entities/order';
+import { dbConn } from '../config';
 
 // Generic sequelize instance type
 export class ModelInstance extends Model {}
@@ -17,8 +17,8 @@ interface IModelBuilder {
 // tslint:disable-next-line: max-classes-per-file
 export class DB {
 	models: Partial<{ [name in string]: typeof ModelInstance }> = {};
-	dbConfig = config.get('sequelize');
-	sequelize = new Sequelize(this.dbConfig as Options);
+	dbConfig = dbConn;
+	sequelize = new Sequelize(this.dbConfig);
 	modelBuilders: IModelBuilder[] = [
 		{
 			name: 'Book',
