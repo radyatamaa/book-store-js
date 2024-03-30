@@ -77,7 +77,7 @@ const NavBar: React.FC = () => {
   };
 
   const calculateTotal = (items: Book[]) => {
-    return items.reduce((total, item) => total + item.price, 0);
+    return items.reduce((total, item) => total + item.total_price, 0);
   };
 
   const createOrders = async (items: Book[]) => {
@@ -89,7 +89,7 @@ const NavBar: React.FC = () => {
           const res = await axios.post<CreateOrderResponse>('http://localhost:8084/v1/order',
           {
             bookId: items[i].id, 
-            quantity: 1, 
+            quantity: items[i].qty, 
             customerId: customer?.id
           } as CreateOrderRequest, {
           headers: {
@@ -195,6 +195,7 @@ const NavBar: React.FC = () => {
                 <thead>
                   <tr className="border-b border-gray-300">
                     <th className="py-2">Item</th>
+                    <th className="py-2">Qty</th>
                     <th className="py-2">Price</th>
                   </tr>
                 </thead>
@@ -202,7 +203,8 @@ const NavBar: React.FC = () => {
                   {cartItems.map((item, index) => (
                     <tr key={index} className="border-b border-gray-300">
                       <td className="py-2">{item.title}</td>
-                      <td className="py-2">${item.price}</td>
+                      <td className="py-2">${item.qty}</td>
+                      <td className="py-2">${item.total_price}</td>
                       <td className="py-2">
                         <button onClick={() => handleDeleteItem(item)} className="text-red-500 hover:text-red-700">
                           Delete

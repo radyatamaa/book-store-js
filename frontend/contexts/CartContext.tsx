@@ -27,9 +27,22 @@ export const CartProvider: React.FC = ({ children }) => {
   }, []);
 
   const addToCart = (book: Book) => {
-    setCartItems([...cartItems, book]);
-    localStorage.setItem('cartItems', JSON.stringify([...cartItems, book]));
+    const existingBookIndex = cartItems.findIndex((item) => item.id === book.id);
+  
+    if (existingBookIndex !== -1) {
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[existingBookIndex].qty += book.qty;
+      updatedCartItems[existingBookIndex].total_price += book.price;
+      setCartItems(updatedCartItems);
+      localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+    } else {
+      book.qty = 1;
+      book.total_price = book.price;
+      setCartItems([...cartItems, book]);
+      localStorage.setItem('cartItems', JSON.stringify([...cartItems, book]));
+    }
   };
+  
 
   const removeFromCart = (book: Book) => {
     const updatedCart = cartItems.filter((item) => item.id !== book.id);
