@@ -72,7 +72,7 @@ const NavBar: React.FC = () => {
           createOrder(item);
       });
       removeAllCarts();
-      window.location.href = '/';
+      window.location.href = '/order';
     }
   };
   const handleCartClick = () => {
