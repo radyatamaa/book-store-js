@@ -59,7 +59,7 @@ You don't need to create table or add the data cause the data and table has been
 ### 1 . Swagger
 ![Swagger](https://github.com/radyatamaa/book-store-js/blob/dev/swagger.png)
 ### 2 . Web
-![Web](https://github.com/radyatamaa/book-store-js/blob/dev/web.png)
+![Web](https://github.com/radyatamaa/book-store-js/blob/dev/web-screenshoot.png)
 
 ## Folder Structure
 
