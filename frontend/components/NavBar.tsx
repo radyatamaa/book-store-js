@@ -37,7 +37,7 @@ const NavBar: React.FC = () => {
   const getCustomerPoints = () => {
     const customerData = localStorage.getItem('customerLogin');
     
-    if (customerData) {
+    if (customerData && customerData !== null && customerData !== 'null') {
       getCustomerProfile();
       let customer = JSON.parse(customerData) as Customer;
 
@@ -49,7 +49,8 @@ const NavBar: React.FC = () => {
 
   const getCustomerProfile = async () => {
     const customerData = localStorage.getItem('customerLogin');
-    if (customerData) {
+    if (customerData && customerData !== null && customerData !== 'null') {
+      console.log('customerData',customerData);
       const customer = JSON.parse(customerData) as Customer;
 
       const res = await axios.get<CustomerDetailResponse>(`http://localhost:3000/v1/customer/${customer.id}`, {});
