@@ -5,8 +5,12 @@ import { useCart } from '../contexts/CartContext';
 import Modal from '../components/Modal';
 import { useRouter } from 'next/router';
 import { Book } from '../types/book';
+import { CreateOrderRequest,CreateOrderResponse } from '../types/order';
+import { Customer } from '../types/customer';
+import axios from 'axios';
 
 const NavBar: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isOrder, setIsOrder] = useState(false);
   const { cartItems, removeAllCarts,removeFromCart  } = useCart();
@@ -32,10 +36,19 @@ const NavBar: React.FC = () => {
   const getCustomerPoints = () => {
     const customerData = localStorage.getItem('customerLogin');
     if (customerData) {
-      const { points } = JSON.parse(customerData);
+      const { points } = JSON.parse(customerData) as Customer;
       return points;
     }
     return 0; // Default value if customerData is not found
+  };
+
+  const getCustomerProfile = () => {
+    const customerData = localStorage.getItem('customerLogin');
+    if (customerData) {
+      const customer = JSON.parse(customerData) as Customer;
+      return customer;
+    }
+    return null; // Default value if customerData is not found
   };
 
   const handleModalClose = () => {
@@ -44,6 +57,16 @@ const NavBar: React.FC = () => {
       window.location.href = '/';
     }
     if (isOrder) {
+      const customer = getCustomerProfile();
+      // cartItems.map((item, index) => {
+      //     createOrder(
+      //       {
+      //         bookId: item.id, 
+      //         quantity: item.qty, 
+      //         customerId: customer?.id
+      //       } as CreateOrderRequest);
+      //   );
+      
       removeAllCarts();
       window.location.href = '/';
     }
@@ -54,6 +77,31 @@ const NavBar: React.FC = () => {
 
   const calculateTotal = (items: Book[]) => {
     return items.reduce((total, item) => total + item.price, 0);
+  };
+
+  const createOrder = async (req: CreateOrderRequest) => {
+    setLoading(true);
+    try {   
+      const res = await axios.post<CreateOrderResponse>('http://localhost:3000/v1/order', {
+        customerId: req.customerId,
+        bookId: req.bookId,
+        quantity: req.quantity,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'accept': 'application/json'
+        }
+      });
+
+      if (res.data.error) {
+        setModalMessage({ message: res.data.error.message, status: 'failed' });
+        setModalOpen(true);
+        setIsOrder(false);
+      }
+    } catch (error) {
+      console.error('Failed to create order:', error);
+    }
+    setLoading(false);
   };
 
   const handleOrder = () => {

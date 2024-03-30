@@ -42,20 +42,25 @@ const LoginPage: React.FC<Props> = ({ customers: initialCustomers }) => {
   };
 
   const handleNewCustomer = async () => {
-    const randomInt = Math.floor(Math.random() * (10000 - 1)) + 1;
-    const res = await axios.post('http://localhost:3000/v1/customer', {
-      name: 'Customer' + randomInt.toString(),
-    }, {
-      headers: {
-        'Content-Type': 'application/json',
-        'accept': 'application/json'
-      }
-    });
+    setLoading(true);
+    try {   
+      const randomInt = Math.floor(Math.random() * (10000 - 1)) + 1;
+      const res = await axios.post('http://localhost:3000/v1/customer', {
+        name: 'Customer' + randomInt.toString(),
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'accept': 'application/json'
+        }
+      });
 
-    const customer = res.data.data;
-    localStorage.setItem('customerLogin', JSON.stringify(customer)); // Simpan customer type ke local storage
-    // Redirect ke halaman pembuatan akun baru
-
+      const customer = res.data;
+      localStorage.setItem('customerLogin', JSON.stringify(customer)); // Simpan customer type ke local storage
+      // Redirect ke halaman pembuatan akun baru
+    } catch (error) {
+      console.error('Failed to register new customer:', error);
+    }
+    setLoading(false);
     setModalMessage({ message: 'Register success', status: 'success' });
     setModalOpen(true);
   };
@@ -93,9 +98,7 @@ const LoginPage: React.FC<Props> = ({ customers: initialCustomers }) => {
 };
 
 export async function getStaticProps() {
-  const res = await axios.get<CustomerResponse>('http://localhost:3000/v1/customer', {
-    params: { page: 1, limit: 9 }, // assuming API supports pagination
-  });
+  const res = await axios.get<CustomerResponse>('http://localhost:3000/v1/customer', {});
   const customers = res.data.data;
 
   return {

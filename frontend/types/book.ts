@@ -6,6 +6,7 @@
     cover_image: string;
     price: number;
     tags: string[];
+    qty: number;
   }
   
   export interface BookResponse {
