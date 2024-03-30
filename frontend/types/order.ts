@@ -31,6 +31,7 @@ export interface CreateOrderRequest {
     customerId: number;
     bookId: number;
     quantity: number;
+    total_price: number;
     book_data:string;
   }
 

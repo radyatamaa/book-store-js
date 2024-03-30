@@ -68,6 +68,7 @@ const OrderListPage: React.FC = () => {
                   <th className="py-2 px-4 bg-gray-50 text-left">Order ID</th>
                   <th className="py-2 px-4 bg-gray-50 text-left">Book Title</th>
                   <th className="py-2 px-4 bg-gray-50 text-left">Qty</th>
+                  <th className="py-2 px-4 bg-gray-50 text-left">Total Price</th>
                   <th className="py-2 px-4 bg-gray-50 text-left">Actions</th>
                 </tr>
               </thead>
@@ -77,6 +78,7 @@ const OrderListPage: React.FC = () => {
                     <td className="py-2 px-4 text-left">{order.id}</td>
                     <td className="py-2 px-4 text-left">{JSON.parse(order.book_data).title}</td>
                     <td className="py-2 px-4 text-left">{order.quantity}</td>
+                    <td className="py-2 px-4 text-left">{order.total_price}</td>
                     <td className="py-2 px-4 text-left">
                       <button onClick={() => setShowModal(true)} className="text-red-500 hover:text-red-700">Delete</button>
                     </td>

@@ -7,6 +7,7 @@ export interface IOrderEntityAttributes {
     quantity: number;
     order_date: Date;
     book_data: string;
+    total_price: number;
 }
 
 export const buildOrderEntity = (sequelize: Sequelize, name: string) => {
@@ -29,6 +30,10 @@ export const buildOrderEntity = (sequelize: Sequelize, name: string) => {
             },
             quantity: {
                 type: DataTypes.INTEGER,
+                allowNull: false,
+            },
+            total_price: {
+                type: DataTypes.FLOAT,
                 allowNull: false,
             },
             book_data: {
