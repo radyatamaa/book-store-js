@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import { CustomerResponse, Customer,CustomerDetailResponse } from '../types/customer';
-import Modal from '../components/Modal'; // Assuming the Modal component is in the same directory as LoginPage.tsx
+import Modal from '../components/Modal'; 
 
 interface Props {
   customers: Customer[];

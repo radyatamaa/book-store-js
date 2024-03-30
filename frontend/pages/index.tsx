@@ -94,7 +94,7 @@ const Home: React.FC<Props> = ({ books: initialBooks }) => {
 
 export async function getStaticProps() {
   const res = await axios.get<BookResponse>('http://localhost:3000/v1/books', {
-    params: { page: 1, limit: 9 }, // assuming API supports pagination
+    params: { page: 1, limit: 9 }, 
   });
   const books = res.data.data.rows;
 

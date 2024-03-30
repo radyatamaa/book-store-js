@@ -25,12 +25,18 @@ const router = Router();
  *         description: page
  *         schema:
  *           type: number
-*       - in: query
+ *       - in: query
  *         name: limit
  *         required: true
  *         description: limit
  *         schema:
  *           type: number
+ *       - in: query
+ *         name: search
+ *         required: false
+ *         description: search
+ *         schema:
+ *           type: string
  *     responses:
  *       '200':
  *         description: A list of books.
