@@ -3,7 +3,6 @@ import { Transition } from '@headlessui/react';
 
 const Modal = ({ isOpen, onClose, message }) => {
   const { message: modalMessage, status } = message;
-  console.log(message)
   return (
     <Transition.Root show={isOpen} as={Fragment}>
       <div className="fixed z-10 inset-0 overflow-y-auto">

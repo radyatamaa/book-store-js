@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { HomeIcon, ShoppingCartIcon, LoginIcon, StarIcon, CashIcon } from '@heroicons/react/solid';
+import { HomeIcon, ShoppingCartIcon, LoginIcon, StarIcon, CashIcon,ArchiveIcon } from '@heroicons/react/solid';
 import { useCart } from '../contexts/CartContext';
 import Modal from '../components/Modal';
 import { useRouter } from 'next/router';
@@ -163,6 +163,14 @@ const NavBar: React.FC = () => {
                   <CashIcon className="w-4 h-4" />
                   <span>Point {getCustomerPoints()}</span>
                 </div>
+              </li>
+              <li>
+                <Link href="/order" passHref>
+                  <div className="flex items-center space-x-2 cursor-pointer">
+                    <ArchiveIcon className="w-4 h-4" />
+                    <span className="hover:underline">Orders</span>
+                  </div>
+                </Link>
               </li>
               <li>
                 <button onClick={handleLogout} className="flex items-center space-x-2 cursor-pointer">
