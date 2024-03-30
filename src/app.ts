@@ -10,11 +10,11 @@ import cors from 'cors';
 
 class Server {
 	app = express();
-	port = 3000 || config.get('port');
+	port = 8084 || config.get('port');
 
 	applyMiddlewares() {
 		this.app.use(cors({
-  		origin: 'http://localhost:3001', // Allow requests from this origin
+  		origin: 'http://localhost:8085', // Allow requests from this origin
   			optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 		}));
 		this.app.use(bodyParser.json());
@@ -33,7 +33,7 @@ class Server {
 			},
 			servers: [
 				{
-				url: 'http://localhost:3000'
+				url: `http://localhost:${this.port}`
 				}
 			]
 			},

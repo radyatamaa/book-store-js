@@ -18,7 +18,7 @@ const OrderListPage: React.FC = () => {
     const fetchOrders = async () => {
       try {
         const customer = await getCustomerProfile();
-        const response = await axios.get<ListOrderResponse>('http://localhost:3000/v1/order', {
+        const response = await axios.get<ListOrderResponse>('http://localhost:8084/v1/order', {
           params: {
             page,
             limit: pageSize,
@@ -38,7 +38,7 @@ const OrderListPage: React.FC = () => {
     const customerData = localStorage.getItem('customerLogin');
     if (customerData && customerData !== null && customerData !== 'null') {
       const customer = JSON.parse(customerData) as Customer;
-      const res = await axios.get<CustomerDetailResponse>(`http://localhost:3000/v1/customer/${customer.id}`, {});
+      const res = await axios.get<CustomerDetailResponse>(`http://localhost:8084/v1/customer/${customer.id}`, {});
       localStorage.setItem('customerLogin', JSON.stringify(res.data.data));
       return res.data.data;
     }
@@ -47,7 +47,7 @@ const OrderListPage: React.FC = () => {
 
   const handleDeleteOrder = async (orderId: number) => {
     try {
-      await axios.delete(`http://localhost:3000/v1/order/${orderId}`);
+      await axios.delete(`http://localhost:8084/v1/order/${orderId}`);
       const updatedOrders = orders.filter(order => order.id !== orderId);
       setOrders(updatedOrders);
       setModalMessage({ message: 'Order has been successfully canceled!', status: 'success' });

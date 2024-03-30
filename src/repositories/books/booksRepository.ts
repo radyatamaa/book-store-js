@@ -28,15 +28,18 @@ export const buildBooksRepository = ({
 
     const findWithPagination = async (page: number, limit: number, searchQuery: string) => {
         const offset = (page - 1) * limit;
-        const { rows, count } = await db.findAndCountAll({ 
-            where: {
-                title: {
-                  [Op.iLike]: `%${searchQuery}%` // Assuming searchQuery is the title to search for
-                }
-              },
+        let args = { 
             offset, 
             limit 
-        });
+        } as any
+        if (searchQuery) {
+            args.where =  {
+                title: {
+                  [Op.iLike]: `%${searchQuery}%`
+                }
+              }
+        }
+        const { rows, count } = await db.findAndCountAll(args);
         return { rows, count };
     };
 

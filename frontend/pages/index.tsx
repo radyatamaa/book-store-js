@@ -17,7 +17,7 @@ const Home: React.FC<Props> = ({ books: initialBooks }) => {
   const fetchMoreBooks = async (searchQuery: string) => {
     setLoading(true);
     try {
-      const res = await axios.get<BookResponse>('http://localhost:3000/v1/books', {
+      const res = await axios.get<BookResponse>('http://localhost:8084/v1/books', {
         params: { page: page + 1, limit: 9, search: searchQuery },
       });
       const newBooks = res.data.data.rows;
@@ -36,7 +36,7 @@ const Home: React.FC<Props> = ({ books: initialBooks }) => {
   const fetchBooks = async () => {
     setLoading(true);
     try {
-      const res = await axios.get<BookResponse>('http://localhost:3000/v1/books', {
+      const res = await axios.get<BookResponse>('http://localhost:8084/v1/books', {
         params: { page: 1, limit: 9, search: searchQuery },
       });
       const newBooks = res.data.data.rows;
@@ -76,7 +76,7 @@ const Home: React.FC<Props> = ({ books: initialBooks }) => {
             <input
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search books..."
+              placeholder="Search books by title..."
               className="border border-gray-300 rounded-l px-3 py-2 w-full"
             />
           </div>
@@ -93,7 +93,7 @@ const Home: React.FC<Props> = ({ books: initialBooks }) => {
 };
 
 export async function getStaticProps() {
-  const res = await axios.get<BookResponse>('http://localhost:3000/v1/books', {
+  const res = await axios.get<BookResponse>('http://localhost:8084/v1/books', {
     params: { page: 1, limit: 9 }, 
   });
   const books = res.data.data.rows;

@@ -45,7 +45,7 @@ const LoginPage: React.FC<Props> = ({ customers: initialCustomers }) => {
     setLoading(true);
     try {   
       const randomInt = Math.floor(Math.random() * (10000 - 1)) + 1;
-      const res = await axios.post<CustomerDetailResponse>('http://localhost:3000/v1/customer', {
+      const res = await axios.post<CustomerDetailResponse>('http://localhost:8084/v1/customer', {
         name: 'Customer' + randomInt.toString(),
       }, {
         headers: {
@@ -98,7 +98,7 @@ const LoginPage: React.FC<Props> = ({ customers: initialCustomers }) => {
 };
 
 export async function getStaticProps() {
-  const res = await axios.get<CustomerResponse>('http://localhost:3000/v1/customer', {});
+  const res = await axios.get<CustomerResponse>('http://localhost:8084/v1/customer', {});
   const customers = res.data.data;
 
   return {
