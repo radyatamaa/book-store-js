@@ -143,14 +143,6 @@ const NavBar: React.FC = () => {
               </div>
             </Link>
           </li>
-          <li>
-            <Link href="/bestsellers" passHref>
-              <div className="flex items-center space-x-2 cursor-pointer">
-                <StarIcon className="w-4 h-4" />
-                <span className="hover:underline">Best Sellers</span>
-              </div>
-            </Link>
-          </li>
           {isLoggedIn ? (
             <>
               <li>
