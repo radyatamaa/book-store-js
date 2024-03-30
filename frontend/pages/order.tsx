@@ -100,7 +100,7 @@ const OrderListPage: React.FC = () => {
             </div>
           </>
         )}
-        {showModal && <Modal isOpen={showModal} onClose={() => setShowModal(false)} />}
+        {showModal && <Modal isOpen={showModal} onClose={() => setShowModal(false) } message={modalMessage} />}
         {showSuccessModal && (
           <Modal isOpen={showSuccessModal} onClose={() => setShowSuccessModal(false)} message={modalMessage} />
         )}

@@ -5,10 +5,9 @@ import { useCart } from '../contexts/CartContext';
 
 interface Props {
   book: Book;
-  onAddToCart: () => void;
 }
 
-const BookCard: React.FC<Props> = ({ book, onAddToCart }) => {
+const BookCard: React.FC<Props> = ({ book }) => {
   const [showModal, setShowModal] = useState(false);
   const [cartCount, setCartCount] = useState(0); 
   const { addToCart } = useCart();

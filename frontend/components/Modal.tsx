@@ -1,7 +1,16 @@
 import { Fragment } from 'react';
 import { Transition } from '@headlessui/react';
 
-const Modal = ({ isOpen, onClose, message }) => {
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  message: {
+    message: string;
+    status: string;
+  };
+}
+
+const Modal : React.FC<ModalProps> = ({ isOpen, onClose, message }) => {
   const { message: modalMessage, status } = message;
   return (
     <Transition.Root show={isOpen} as={Fragment}>

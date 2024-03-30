@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode  } from 'react';
 import { BookResponse, Book } from '../types/book';
 
 interface CartContextType {
@@ -6,6 +6,10 @@ interface CartContextType {
   addToCart: (book: Book) => void;
   removeFromCart: (book: Book) => void;
   removeAllCarts: () => void;
+}
+
+interface CartProviderProps {
+  children: ReactNode;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -18,7 +22,7 @@ export const useCart = () => {
   return context;
 };
 
-export const CartProvider: React.FC = ({ children }) => {
+export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [cartItems, setCartItems] = useState<Book[]>([]);
 
   useEffect(() => {

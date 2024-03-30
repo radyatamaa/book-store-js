@@ -217,8 +217,8 @@ const NavBar: React.FC = () => {
                   </tbody>
                   <tfoot>
                     <tr className="border-t border-gray-300">
-                      <td colSpan="2" className="py-2 px-4 font-bold">Total</td>
-                      <td colSpan="2" className="py-2 px-4 font-bold text-right">${calculateTotal(cartItems)}</td>
+                      <td colSpan={2} className="py-2 px-4 font-bold">Total</td>
+                      <td colSpan={2} className="py-2 px-4 font-bold text-right">${calculateTotal(cartItems)}</td>
                     </tr>
                   </tfoot>
                 </table>
