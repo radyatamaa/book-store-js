@@ -1,6 +1,6 @@
 import { IBooksRepository } from '../../repositories/books/booksRepository';
 
-export type IListBooks = (query: {page:number,limit: number}) => Promise<any>;
+export type IListBooks = (query: {page:number,limit: number,search: string}) => Promise<any>;
 
 export const buildListBooks = ({
 	BooksRepository,
@@ -14,6 +14,6 @@ export const buildListBooks = ({
 			page = query.page
 			limit = query.limit
 		}
-		return BooksRepository.findWithPagination(page,limit);
+		return BooksRepository.findWithPagination(page,limit,query.search);
 	};
 };
