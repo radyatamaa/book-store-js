@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { CustomerResponse, Customer } from '../types/customer';
+import { CustomerResponse, Customer,CustomerDetailResponse } from '../types/customer';
 import Modal from '../components/Modal'; // Assuming the Modal component is in the same directory as LoginPage.tsx
 
 interface Props {
@@ -45,7 +45,7 @@ const LoginPage: React.FC<Props> = ({ customers: initialCustomers }) => {
     setLoading(true);
     try {   
       const randomInt = Math.floor(Math.random() * (10000 - 1)) + 1;
-      const res = await axios.post('http://localhost:3000/v1/customer', {
+      const res = await axios.post<CustomerDetailResponse>('http://localhost:3000/v1/customer', {
         name: 'Customer' + randomInt.toString(),
       }, {
         headers: {
@@ -54,7 +54,7 @@ const LoginPage: React.FC<Props> = ({ customers: initialCustomers }) => {
         }
       });
 
-      const customer = res.data;
+      const customer = res.data.data;
       localStorage.setItem('customerLogin', JSON.stringify(customer)); // Simpan customer type ke local storage
       // Redirect ke halaman pembuatan akun baru
     } catch (error) {

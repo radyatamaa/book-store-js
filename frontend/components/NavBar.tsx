@@ -6,7 +6,7 @@ import Modal from '../components/Modal';
 import { useRouter } from 'next/router';
 import { Book } from '../types/book';
 import { CreateOrderRequest,CreateOrderResponse } from '../types/order';
-import { Customer } from '../types/customer';
+import { Customer,CustomerDetailResponse } from '../types/customer';
 import axios from 'axios';
 
 const NavBar: React.FC = () => {
@@ -22,6 +22,7 @@ const NavBar: React.FC = () => {
   useEffect(() => {
     const customerLogin = localStorage.getItem('customerLogin');
     setIsLoggedIn(!!customerLogin);
+    getCustomerProfile();
   }, []);
 
   const handleLogout = () => {
@@ -35,18 +36,27 @@ const NavBar: React.FC = () => {
 
   const getCustomerPoints = () => {
     const customerData = localStorage.getItem('customerLogin');
+    
     if (customerData) {
-      const { points } = JSON.parse(customerData) as Customer;
+      getCustomerProfile();
+      let customer = JSON.parse(customerData) as Customer;
+
+      const { points } = customer;
       return points;
     }
     return 0; // Default value if customerData is not found
   };
 
-  const getCustomerProfile = () => {
+  const getCustomerProfile = async () => {
     const customerData = localStorage.getItem('customerLogin');
     if (customerData) {
       const customer = JSON.parse(customerData) as Customer;
-      return customer;
+
+      const res = await axios.get<CustomerDetailResponse>(`http://localhost:3000/v1/customer/${customer.id}`, {});
+  
+      localStorage.setItem('customerLogin',JSON.stringify(res.data.data));
+
+      return res.data.data;
     }
     return null; // Default value if customerData is not found
   };
@@ -57,16 +67,9 @@ const NavBar: React.FC = () => {
       window.location.href = '/';
     }
     if (isOrder) {
-      const customer = getCustomerProfile();
-      // cartItems.map((item, index) => {
-      //     createOrder(
-      //       {
-      //         bookId: item.id, 
-      //         quantity: item.qty, 
-      //         customerId: customer?.id
-      //       } as CreateOrderRequest);
-      //   );
-      
+      cartItems.map((item, index) => {
+          createOrder(item);
+      });
       removeAllCarts();
       window.location.href = '/';
     }
@@ -79,14 +82,17 @@ const NavBar: React.FC = () => {
     return items.reduce((total, item) => total + item.price, 0);
   };
 
-  const createOrder = async (req: CreateOrderRequest) => {
+  const createOrder = async (item: Book) => {
     setLoading(true);
     try {   
-      const res = await axios.post<CreateOrderResponse>('http://localhost:3000/v1/order', {
-        customerId: req.customerId,
-        bookId: req.bookId,
-        quantity: req.quantity,
-      }, {
+      const customer = await getCustomerProfile();
+
+      const res = await axios.post<CreateOrderResponse>('http://localhost:3000/v1/order',
+        {
+          bookId: item.id, 
+          quantity: 1, 
+          customerId: customer?.id
+        } as CreateOrderRequest, {
         headers: {
           'Content-Type': 'application/json',
           'accept': 'application/json'

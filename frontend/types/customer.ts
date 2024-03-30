@@ -12,3 +12,9 @@ export interface Customer {
     statusCode:number;
     data: Customer[];
   }
+
+  export interface CustomerDetailResponse {
+    success:boolean;
+    statusCode:number;
+    data: Customer;
+  }
