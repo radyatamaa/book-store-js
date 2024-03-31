@@ -17,7 +17,7 @@ class Server {
 
 	applyMiddlewares() {
 		this.app.use(cors({
-  		origin: this.allowCorsOrigin, // Allow requests from this origin
+  		origin: true, // Allow requests from this origin
   			optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 		}));
 		this.app.use(bodyParser.json());
