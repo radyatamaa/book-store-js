@@ -4,7 +4,7 @@ import { logger } from '../../src/helpers/logger';
 import { buildBookEntity } from '../entities/book';
 import { buildCustomerEntity } from '../entities/customer';
 import { buildOrderEntity } from '../entities/order';
-import { dbConn } from '../config';
+import { dbConn,app } from '../config';
 
 // Generic sequelize instance type
 export class ModelInstance extends Model {}
@@ -66,7 +66,7 @@ export class DB {
 	}
 
 	async init({ willLoadFixtures = true }: { willLoadFixtures: boolean }) {
-		const isDev = process.env.NODE_ENV === 'development';
+		const isDev = app.app_env === 'development';
 
 		try {
 			await this.sequelize.authenticate();

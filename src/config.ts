@@ -4,6 +4,7 @@ dotenv.config();
 
 
 interface App {
+    app_env: string;
 	port: number;
     host: string;
     allowCorsOrigin: string;
@@ -25,10 +26,17 @@ export const dbConn: Options = {
     define: {
         freezeTableName: process.env.DB_DEFINE_FREEZE_TABLE_NAME === 'true',
     },
+    dialectOptions: {
+        ssl: {
+            require: process.env.DB_SSL_REQUIRED === 'true', // This will help you. But you will see nwe error
+            rejectUnauthorized: process.env.REJECTED_UNAUTHORIZED === 'true' // This line will fix new error
+        }
+    }
 };
 
 export const app: App = {
-    port : 8084 || process.env.APP_PORT,
-	host : 'http://localhost' || process.env.APP_HOST,
-	allowCorsOrigin : 'http://localhost:8085' || process.env.APP_ALLOW_CORS_ORIGIN,
+    app_env: process.env.APP_APP_ENV || 'development',
+    port : parseInt(process.env.PORT || '8084', 10),
+	host : process.env.APP_HOST || 'http://localhost',
+	allowCorsOrigin : process.env.APP_ALLOW_CORS_ORIGIN || 'http://localhost:8085',
 }

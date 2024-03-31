@@ -5,9 +5,9 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "jest --watchAll",
-		"dev": "cross-env NODE_ENV=development nodemon src/ -e ts --exec 'ts-node -r tsconfig-paths/register'",
+		"dev": "cross-env NODE_APP_ENV=development nodemon src/ -e ts --exec 'ts-node -r tsconfig-paths/register'",
 		"coverage": "jest --coverage",
-		"start": "npm install -g nodemon && npm install -g ts-node && npm install --save tsconfig-paths && nodemon src/ -e ts --exec 'ts-node -r tsconfig-paths/register'"
+		"start": "nodemon src/ -e ts --exec 'ts-node -r tsconfig-paths/register'"
 	},
 	"keywords": [],
 	"author": "",

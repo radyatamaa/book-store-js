@@ -11,7 +11,7 @@ import cors from 'cors';
 
 class Server {
 	app = express();
-	port = process.env.APP_PORT || 8084;
+	port = process.env.PORT || 8084;
 	host = process.env.APP_HOST || 'http://localhost';
 	allowCorsOrigin = process.env.APP_ALLOW_CORS_ORIGIN || 'http://localhost:8085';
 

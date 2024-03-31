@@ -4,6 +4,6 @@ require('dotenv').config();
 module.exports = {
     env: {
         BASE_URL_API: process.env.BASE_URL_API,
-        ENV:process.env.ENV,
+        APP_ENV:process.env.APP_ENV,
     },
 };
