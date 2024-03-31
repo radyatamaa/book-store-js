@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"build": "tsc --project ./src/",
+		"build": "tsc --project ./",
 		"test": "jest --watchAll",
 		"dev": "cross-env NODE_ENV=development nodemon src/ -e ts --exec 'ts-node -r tsconfig-paths/register'",
 		"coverage": "jest --coverage",
