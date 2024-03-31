@@ -111,14 +111,14 @@ const NavBar: React.FC = () => {
     setLoading(false);
   };
 
-  const handleOrder = () => {
+  const handleOrder = async () => {
     const points = getCustomerPoints();
     if (calculateTotal(cartItems) > points) {
       setModalMessage({ message: 'Your points are not enough to order', status: 'failed' });
       setModalOpen(true);
       setIsOrder(false);
     } else {
-      createOrders(cartItems);
+     await createOrders(cartItems);
       setModalMessage({ message: 'Order success', status: 'success' });
       setModalOpen(true);
       setIsOrder(true);
