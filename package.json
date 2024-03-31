@@ -7,7 +7,7 @@
 		"test": "jest --watchAll",
 		"dev": "cross-env NODE_ENV=development nodemon src/ -e ts --exec 'ts-node -r tsconfig-paths/register'",
 		"coverage": "jest --coverage",
-		"start": "npm install -g nodemon && npm install -g ts-node && npm install -D tsconfig-paths && nodemon src/ -e ts --exec 'ts-node -r tsconfig-paths/register'"
+		"start": "npm install -g nodemon && npm install -g ts-node && npm install -g tsconfig-paths && nodemon src/ -e ts --exec 'ts-node -r tsconfig-paths/register'"
 	},
 	"keywords": [],
 	"author": "",
@@ -54,7 +54,7 @@
 		"swagger-jsdoc": "^6.2.8",
 		"swagger-ui-express": "^5.0.0",
 		"ts-node": "^8.1.0",
-		"tsconfig-paths": "^3.8.0",
+		"tsconfig-paths": "^3.15.0",
 		"tslint-config-prettier": "^1.18.0",
 		"typescript": "^3.4.5"
 	},
