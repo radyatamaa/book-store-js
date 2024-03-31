@@ -7,7 +7,7 @@
 		"test": "jest --watchAll",
 		"dev": "cross-env NODE_ENV=development nodemon src/ -e ts --exec 'ts-node -r tsconfig-paths/register'",
 		"coverage": "jest --coverage",
-		"start": "npm install -g nodemon && npm install -g ts-node && npm install -g tsconfig-paths && nodemon src/ -e ts --exec 'ts-node -r tsconfig-paths/register'"
+		"start": "npm install -g nodemon && npm install -g ts-node && npm install --save tsconfig-paths && nodemon src/ -e ts --exec 'ts-node -r tsconfig-paths/register'"
 	},
 	"keywords": [],
 	"author": "",
